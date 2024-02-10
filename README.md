@@ -3,7 +3,7 @@
 ## Objectif pédagogique :
 Maîtriser les différentes étapes de la création d'un site web.
 Développer des compétences en travail collaboratif.
-Mettre en pratique les connaissances acquises en BTS SIO.
+Mettre en pratique les connaissances acquises en BTS SIO. 
 
 ## Compétences évaluées :
 Analyse du besoin.
