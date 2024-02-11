@@ -3,7 +3,7 @@
 
     if (!isset($controller))
     {
-        // Instanciation du controleur
+        // Instanciation du controleur 
         $controller = new controller();
     }
 

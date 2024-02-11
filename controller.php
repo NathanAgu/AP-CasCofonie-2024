@@ -1,7 +1,7 @@
 <?php
     class controller
     {
-        // Constructeur de la classe "controleur"
+        // Constructeur de la classe "controleur" 
         public function __construct(){}
 
         // ========================= Parties à afficher =========================
