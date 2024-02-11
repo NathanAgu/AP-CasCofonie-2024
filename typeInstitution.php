@@ -15,5 +15,18 @@
                     break;
             }
         }
+
+        public function __set($attribute, $value)
+        {
+            switch ($attribute)
+            {
+                case "id":
+                    $this->id = $value;
+                    break;
+                case "libelle":
+                    $this->libelle = $value;
+                    break;
+            }
+        }
     }
 ?>
