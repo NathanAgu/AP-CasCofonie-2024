@@ -17,7 +17,10 @@
 
         public function listInstitutions()
         {
-            
+            foreach ($this->institutions as $institution)
+            {
+                
+            }
         }
     }
 ?>
