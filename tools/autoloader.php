@@ -21,13 +21,13 @@
                 }
                 else
                 {
-                    if (strcmp($result, 'job') == 0)
+                    if (strcmp($result, 'action') == 0)
                     {
-                        include_once 'Processing/Jobs/'.$class.'.php';
+                        include_once 'Processing/Action/'.$class.'.php';
                     }
                     else
                     {
-                        if (strcmp($result, 'view') == 0)
+                        if (strcmp($result, 'views') == 0) // à revoir le nom
                         {
                             include_once 'Templates/Views/'.$class.'.php';
                         }
