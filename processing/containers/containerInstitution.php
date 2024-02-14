@@ -1,5 +1,5 @@
 <?php
-    include_once('institution.php');
+    autoloader("actionInstitution");
 
     class containerInstitution
     {

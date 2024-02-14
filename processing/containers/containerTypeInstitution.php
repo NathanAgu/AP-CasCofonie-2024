@@ -1,5 +1,5 @@
 <?php
-    autoloader("actionArticle");
+    autoloader("actionTypeInstitution");
 
     class containerTypeInstitution
     {
