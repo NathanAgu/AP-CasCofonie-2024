@@ -1,5 +1,5 @@
 <?php
-    class institution
+    class Institution
     {
         public function __construct(private int $id, private string $libelle, private typeInstitution $typeInstitution){}
 

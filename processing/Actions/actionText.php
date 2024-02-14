@@ -1,5 +1,5 @@
 <?php
-    class text
+    class Text
     {
         public function __construct(private int $id) {}
 

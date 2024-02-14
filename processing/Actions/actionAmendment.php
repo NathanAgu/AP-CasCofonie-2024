@@ -1,5 +1,5 @@
 <?php
-    class amendment
+    class Amendment
     {
         public function __construct(private int $id, private string $content, private article $article) {}
 
