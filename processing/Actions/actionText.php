@@ -1,7 +1,7 @@
 <?php
-    class article
+    class text
     {
-        public function __construct(private int $id, private string $text, private containerAmendment $amendments) {}
+        public function __construct(private int $id) {}
 
         public function __get($attribute)
         {
@@ -9,12 +9,6 @@
             {
                 case "id":
                     return $this->id;
-                    break;
-                case "text":
-                    return $this->text;
-                    break;
-                case "amendments":
-                    return $this->amendments;
                     break;
             }
         }
@@ -25,9 +19,6 @@
             {
                 case "id":
                     $this->id = $value;
-                    break;
-                case "libelle":
-                    $this->libelle = $value;
                     break;
             }
         }
