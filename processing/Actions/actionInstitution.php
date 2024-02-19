@@ -1,7 +1,7 @@
 <?php
     class Institution
     {
-        public function __construct(private int $id, private string $libelle, private typeInstitution $typeInstitution){}
+        public function __construct(private int $id, private string $label, private typeInstitution $typeInstitution){}
 
         public function __get($attribute)
         {
@@ -10,8 +10,8 @@
                 case "id":
                     return $this->id;
                     break;
-                case "libelle":
-                    return $this->libelle;
+                case "label":
+                    return $this->label;
                     break;
                 case "typeInstitution":
                     return $this->typeInstitution;
@@ -26,8 +26,8 @@
                 case "id":
                     $this->id = $value;
                     break;
-                case "libelle":
-                    $this->libelle = $value;
+                case "label":
+                    $this->label = $value;
                     break;
                 case "typeInstitution":
                     $this->typeInstitution = $value;
