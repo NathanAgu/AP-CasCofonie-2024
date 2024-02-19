@@ -1,7 +1,7 @@
 <?php
     class Text
     {
-        public function __construct(private int $id) {}
+        public function __construct(private int $id, private string $title, private int $finalVote, private bool $promulgation) {}
 
         public function __get($attribute)
         {
@@ -10,6 +10,16 @@
                 case "id":
                     return $this->id;
                     break;
+                case "title":
+                    return $this->title;
+                    break;
+                case "finalVote":
+                    return $this->finalVote;
+                    break;
+                case "promulgation":
+                    return $this->promulgation;
+                    break;
+
             }
         }
 
@@ -19,6 +29,15 @@
             {
                 case "id":
                     $this->id = $value;
+                    break;
+                case "title":
+                    $this->title = $value;
+                    break;
+                case "finalVote":
+                    $this->finalVote = $value;
+                    break;
+                case "promulgation":
+                    $this->promulgation = $value;
                     break;
             }
         }
