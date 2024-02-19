@@ -1,7 +1,7 @@
 <?php
     autoloader("actionAmendment");
 
-    class containerAmendment
+    class ContainerAmendment
     {
         private $amendments;
 
@@ -12,7 +12,7 @@
 
         public function addAmendment($id, $content, $article)
         {
-            $this->amendments->append(new amendment($id, $content, $article));
+            $this->amendments->append(new Amendment($id, $content, $article));
         }
 
         public function listAmendment()

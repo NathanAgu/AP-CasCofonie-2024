@@ -1,7 +1,7 @@
 <?php
     autoloader("actionArticle");
 
-    class containerArticle
+    class ContainerArticle
     {
         private $articles;
 
@@ -12,7 +12,7 @@
 
         public function addArticle($id, $title, $content, $text)
         {
-            $this->articles->append(new article($id, $title, $content, $text));
+            $this->articles->append(new Article($id, $title, $content, $text));
         }
 
         public function listArticles()

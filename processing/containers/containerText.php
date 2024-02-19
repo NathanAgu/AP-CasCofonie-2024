@@ -1,7 +1,7 @@
 <?php
     autoloader("actionText");
 
-    class containerInstitution
+    class ContainerText
     {
         private $texts;
 
@@ -12,7 +12,7 @@
 
         public function addText($id)
         {
-            $this->texts->append(new institution($id));
+            $this->texts->append(new Text($id));
         }
 
         public function listTexts()

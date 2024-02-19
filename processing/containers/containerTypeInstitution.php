@@ -1,7 +1,7 @@
 <?php
     autoloader("actionTypeInstitution");
 
-    class containerTypeInstitution
+    class ContainerTypeInstitution
     {
         private $typeInstitutions;
 
@@ -12,7 +12,7 @@
 
         public function addTypeInstitution($id, $libelle)
         {
-            $this->typeInstitutions->append(new typeInstitutions($id, $libelle));
+            $this->typeInstitutions->append(new TypeInstitutions($id, $libelle));
         }
 
         public function listTypeInstitution()
