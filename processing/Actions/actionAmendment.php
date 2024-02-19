@@ -1,7 +1,7 @@
 <?php
     class Amendment
     {
-        public function __construct(private int $id, private string $content, private article $article) {}
+        public function __construct(private int $id, private string $label, private string $content, private date $date) {}
 
         public function __get($attribute)
         {
@@ -10,11 +10,14 @@
                 case "id":
                     return $this->id;
                     break;
-                case "text":
+                case "label"
+                    return $this->label;
+                    break;
+                case "content":
                     return $this->content;
                     break;
-                case "article":
-                    return $this->article;
+                case "date":
+                    return $this->date;
                     break;
             }
         }
@@ -26,11 +29,14 @@
                 case "id":
                     $this->id = $value;
                     break;
-                case "libelle":
+                case "label"
+                    $this->label = $value;
+                    break;
+                case "content":
                     $this->content = $value;
                     break;
-                case "artcicle":
-                    $this->article = $value;
+                case "date":
+                    $this->date = $value;
                     break;
             }
         }
