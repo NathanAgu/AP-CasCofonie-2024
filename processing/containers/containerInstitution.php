@@ -10,9 +10,9 @@
             $this->institutions = new ArrayObject();
         }
 
-        public function addInstitution($id, $libelle, $typeInstitution)
+        public function addInstitution($id, $label)
         {
-            $this->institutions->append(new Institution($id, $libelle, $typeInstitution));
+            $this->institutions->append(new Institution($id, $label));
         }
 
         public function listInstitutions()
