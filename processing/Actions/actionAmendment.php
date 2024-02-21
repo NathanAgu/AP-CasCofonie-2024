@@ -1,7 +1,7 @@
 <?php
     class Amendment
     {
-        public function __construct(private int $id, private string $label, private string $content, private date $date) {}
+        public function __construct(private int $id, private string $label, private string $content, private dateTime $date) {}
 
         public function __get($attribute)
         {
@@ -10,7 +10,7 @@
                 case "id":
                     return $this->id;
                     break;
-                case "label"
+                case "label":
                     return $this->label;
                     break;
                 case "content":
@@ -29,7 +29,7 @@
                 case "id":
                     $this->id = $value;
                     break;
-                case "label"
+                case "label":
                     $this->label = $value;
                     break;
                 case "content":

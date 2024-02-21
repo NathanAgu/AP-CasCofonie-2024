@@ -9,19 +9,19 @@
         // Méthode pour afficher l'entête de la page du site
         public function displayHeader()
         {
-            require 'header.php';
+            require 'Templates/Views/viewsHeader.php';
         }
 
         // Méthode pour afficher la page du site (Contenu central)
         public function displayPage()
         {
-            require 'page.php';
+            //require 'page.php';
         }
 
         // Méthode pour afficher le pied de la page du site
         public function displayFooter()
         {
-            require 'footer.php';
+            require 'Templates/Views/viewsFooter.php';
         }
     }
 ?>

@@ -1,5 +1,5 @@
 <?php
-    autoloader("controller");
+    include("controller/controller.php");
 
     if (!isset($controller))
     {
