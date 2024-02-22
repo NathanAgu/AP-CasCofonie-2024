@@ -1,27 +1,41 @@
 <?php
+include_once ('processing/containers/containerText.php');
     class controller
     {
-        // Constructeur de la classe "controleur" 
-        public function __construct(){}
-
-        // ========================= Parties à afficher =========================
         
-        // Méthode pour afficher l'entête de la page du site
+        /*********************************************************************************************************************
+                                    CONSTRUCTEUR DE NOTRE CONTROLEUR
+		        On construit tous les tableux d'objets et on les remplis vec la base de données
+        *********************************************************************************************************************/
+
+        public function __construct()
+        {
+            
+        }
+
+        /*****************************************************************************************
+                                    AFFICHAGE DES ENTETES ET PIED DE PAGE
+        ******************************************************************************************/
+
         public function displayHeader()
         {
             require 'Templates/Views/viewsHeader.php';
         }
 
+        public function displayFooter()
+        {
+            require 'Templates/Views/viewsFooter.php';
+        }
+
+
+        /******************************************************************************************
+                        EN FONCTION DE LA VUE DEMANDE ON EFFECTUE TELLE OU TELLE ACTION
+        ********************************************************************************************/
+        
         // Méthode pour afficher la page du site (Contenu central)
         public function displayPage()
         {
             //require 'page.php';
-        }
-
-        // Méthode pour afficher le pied de la page du site
-        public function displayFooter()
-        {
-            require 'Templates/Views/viewsFooter.php';
         }
     }
 ?>

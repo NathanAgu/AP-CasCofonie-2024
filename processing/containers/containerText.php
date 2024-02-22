@@ -1,5 +1,5 @@
 <?php
-    autoloader("actionText");
+    include("actionText");
 
     class ContainerText
     {
