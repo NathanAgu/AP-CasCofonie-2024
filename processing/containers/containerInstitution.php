@@ -1,5 +1,5 @@
 <?php
-    autoloader("actionInstitution");
+    autoload("actionInstitution");
 
     class ContainerInstitution
     {

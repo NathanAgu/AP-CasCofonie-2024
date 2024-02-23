@@ -1,5 +1,5 @@
 <?php
-    autoloader("actionAmendment");
+    autoload("actionAmendment");
 
     class ContainerAmendment
     {

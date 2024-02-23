@@ -1,5 +1,5 @@
 <?php
-    autoloader("actionArticle");
+    autoload("actionArticle");
 
     class ContainerArticle
     {

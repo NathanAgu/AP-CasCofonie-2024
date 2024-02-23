@@ -1,5 +1,5 @@
 <?php
-    function autoloader($class)
+    function autoload($class)
     {
         $result = substr($class, 0, 4);
 
@@ -35,5 +35,6 @@
                 }
             }
         }
+        spl_autoload_register('autoload');
     }
 ?>
