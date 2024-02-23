@@ -88,13 +88,16 @@
             switch ($action)
             {
                 case "display":
-                    echo "Affichage article";
+                    $view = new viewArticle();
+                    $view->displayArticle();
                     break;
                 case "add":
-                    echo "Ajout article";
+                    $view = new viewArticle();
+                    $view->addArticle();
                     break;
                 case "remove":
-                    echo "Supression article";
+                    $view = new viewArticle();
+                    $view->removeArticle();
                     break;
             }
         }
@@ -104,7 +107,8 @@
             switch ($action)
             {
                 case "display":
-                    echo "Affichage institution";
+                    $view = new viewInstitution();
+                    $view->displayInstitution();
                     break;
             }
         }
@@ -114,7 +118,8 @@
             switch ($action)
             {
                 case "display":
-                    echo "Affichage organ";
+                    $view = new viewOrgan();
+                    $view->displayOrgan();
                     break;
             }
         }
@@ -124,7 +129,8 @@
             switch ($action)
             {
                 case "display":
-                    echo "Affichage role";
+                    $view = new viewRole();
+                    $view->displayRole();
                     break;
             }
         }
@@ -134,13 +140,16 @@
             switch ($action)
             {
                 case "display":
-                    echo "Affichage text";
+                    $view = new viewText();
+                    $view->displayText();
                     break;
                 case "add":
-                    echo "Ajout text";
+                    $view = new viewText();
+                    $view->addText();
                     break;
                 case "remove":
-                    echo "Suppression text";
+                    $view = new viewText();
+                    $view->removeText();
                     break;
             }
         }
@@ -150,7 +159,8 @@
             switch ($action)
             {
                 case "display":
-                    echo "Affichage institution";
+                    $view = new viewTypeInstitution();
+                    $view->displayTypeInstitution();
                     break;
             }
         }
