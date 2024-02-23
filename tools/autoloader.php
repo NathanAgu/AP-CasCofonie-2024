@@ -1,7 +1,7 @@
 <?php
     function autoloader($class)
     {
-        $result = substr($class, 0, 5);
+        $result = substr($class, 0, 4);
 
         if (strcmp($result, 'ctrl') == 0)
         {

@@ -1,4 +1,14 @@
 <?php
+    include_once("Tools/autoloader.php");
+
+    autoloader("viewAmendment");
+    autoloader("viewArticle");
+    autoloader("viewInstitution");
+    autoloader("viewOrgan");
+    autoloader("viewRole");
+    autoloader("viewText");
+    autoloader("viewTypeInstitution");
+
     class controller
     {
         // Constructeur de la classe "controleur" 
@@ -59,13 +69,16 @@
             switch ($action)
             {
                 case "display":
-                    echo "Affichage ammendement";
+                    $view = new viewAmendment();
+                    $view->displayAmendment();
                     break;
                 case "add":
-                    echo "Ajout ammendement";
+                    $view = new viewAmendment();
+                    $view->addAmendment();
                     break;
                 case "remove":
-                    echo "Supression ammendement";
+                    $view = new viewAmendment();
+                    $view->removeAmendment();
                     break;
             }
         }
