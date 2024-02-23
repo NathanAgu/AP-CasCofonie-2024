@@ -1,13 +1,13 @@
 <?php
     include_once("autoload.php");
 
-    // autoloader("viewAmendment");
-    // autoloader("viewArticle");
-    // autoloader("viewInstitution");
-    // autoloader("viewOrgan");
-    // autoloader("viewRole");
-    // autoloader("viewText");
-    // autoloader("viewTypeInstitution");
+    // autoload("viewAmendment");
+    // autoload("viewArticle");
+    // autoload("viewInstitution");
+    // autoload("viewOrgan");
+    // autoload("viewRole");
+    // autoload("viewText");
+    // autoload("viewTypeInstitution");
 
     class controller
     {
