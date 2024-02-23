@@ -1,6 +1,4 @@
 <?php
-    autoload();
-
     class ContainerRole
     {
         private $roles;
