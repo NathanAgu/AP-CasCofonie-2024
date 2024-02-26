@@ -2,31 +2,32 @@
     class Role
     {
         public function __construct(private int $id, private string $label){}
-    }
+    
 
-    public function __get($attribute)
-    {
-        switch ($attribute)
+        public function __get($attribute)
         {
-            case "id":
-                return $this->id;
-                break;
-            case "label":
-                return $this->label;
-                break;
+            switch ($attribute)
+            {
+                case "id":
+                    return $this->id;
+                    break;
+                case "label":
+                    return $this->label;
+                    break;
+            }
         }
-    }
-
-    public function __set($attribute, $value)
-    {
-        switch ($attribute)
+    
+        public function __set($attribute, $value)
         {
-            case "id":
-                $this->id = $value;
-                break;
-            case "label":
-                $this->label = $value;
-                break;
+            switch ($attribute)
+            {
+                case "id":
+                    $this->id = $value;
+                    break;
+                case "label":
+                    $this->label = $value;
+                    break;
+            }
         }
     }
 ?>
