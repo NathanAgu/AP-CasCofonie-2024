@@ -12,12 +12,12 @@ CREATE TABLE IF NOT EXISTS TYPEINSTITUTION
    idTypeInstitution int NOT NULL AUTO_INCREMENT ,
    libelleTypeInstitution CHAR(32) NULL  ,
    constraint pk_typeInstitution PRIMARY KEY (idTypeInstitution) 
-    ) ENGINE = INNOBD;
+    ) engine = innodb;
 
-    insert into typeInstitution values (1, 'executif');
-    insert into typeInstitution values (2,'legislatif');
-    insert into typeInstitution values (3,'judiciaire');
-    insert into typeInstitution values (4,'pas de pouvoir');
+    insert into TYPEINSTITUTION values (1, 'executif');
+    insert into TYPEINSTITUTION values (2,'legislatif');
+    insert into TYPEINSTITUTION values (3,'judiciaire');
+    insert into TYPEINSTITUTION values (4,'pas de pouvoir');
 
 
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS INSTITUTION
    idInstitution int NOT NULL AUTO_INCREMENT ,
    libelleInstitution CHAR(32) NULL , 
    constraint pk_institution PRIMARY KEY (idInstitution) 
-  ) ENGINE = INNOBD;
+  ) engine = innodb;
 
 
 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS ROLEINSTITUTION
    libelleRole CHAR(150) NULL  , 
    constraint pk_roleInstitution PRIMARY KEY (idRole) ,
    constraint fk_roleInstitution_institution FOREIGN KEY (idInstitution) REFERENCES INSTITUTION (idInstitution)
- ) ENGINE = INNOBD;
+ ) engine = innodb;
  
 
 
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS APPARTENIR
     constraint fk_institution_Institution FOREIGN KEY (idInstitution) REFERENCES INSTITUTION (idInstitution) ,
    constraint fk_institution_typeInstitution FOREIGN KEY (idTypeInstitution) REFERENCES TYPEINSTITUTION (idTypeInstitution) 
 
- ) ENGINE = INNOBD;
+ ) engine = innodb;
 
  insert into APPARTENIR values (1,1);
  insert into APPARTENIR values (2,1);
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS COMPRENDRE
    constraint pk_comprendre PRIMARY KEY (idInstitution,idOrgane) ,
    constraint fk_comprendre_institution FOREIGN KEY (idInstitution) REFERENCES INSTITUTION (idInstitution),
    constraint fk_comprendre_organe FOREIGN KEY (idOrgane) REFERENCES ORGANE (idOrgane)
- ) ENGINE = INNOBD;
+ ) engine = innodb;
 
 CREATE  INDEX I_FK_COMPRENDRE_INSTITUTION
      ON COMPRENDRE (idInstitution ASC);
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS TEXTE
    promulgationTexte boolean NULL  ,
    constraint pk_texte PRIMARY KEY (idTexte) ,
    constraint fk_texte_institution FOREIGN KEY (idInstitution) REFERENCES INSTITUTION (idInstitution) 
- ) ENGINE = INNOBD;
+ ) engine = innodb;
 
 CREATE  INDEX I_FK_TEXTE_INSTITUTION
      ON TEXTE (idInstitution ASC);
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS ARTICLE
    texteArtitcle CHAR(255) NULL  ,
    constraint pk_article PRIMARY KEY (idTexte,codeSeqArticle) ,
    constraint fk_article_texte FOREIGN KEY (idTexte) REFERENCES TEXTE (idtexte)
- ) ENGINE = INNOBD;
+ ) engine = innodb;
 
 CREATE  INDEX I_FK_ARTICLE_TEXTE
      ON ARTICLE (idTexte ASC);
@@ -201,7 +201,7 @@ CREATE TABLE IF NOT EXISTS AMENDEMENT
    dateAmendement DATE NULL  , 
    constraint pk_amendement PRIMARY KEY (idTexte,codeSeqArticle,codeSeqAmendement) ,
    constraint fk_amendement_article FOREIGN KEY (idTexte,codeSeqArticle) REFERENCES ARTICLE (idTexte,codeSeqArticle) 
- ) ENGINE = INNOBD;
+ ) engine = innodb;
 
 
 
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS FAIREREFERENCE
    constraint pk_faireReference PRIMARY KEY (idTexte1,codeSeqArticle1,idtexte2,codeSeqArticle2) ,
    constraint fk_fairereference_article1 FOREIGN KEY (idTexte1,codeSeqArticle1) REFERENCES ARTICLE (codeTexte,codeSeqArticle),
    constraint fk_fairereference_article2 FOREIGN KEY (idTexte2,codeSeqArticle2) REFERENCES ARTICLE (idTexte,codeSeqArticle)
-   )ENGINE = INNOBD ;
+   ) engine = innodb ;
 
 
 CREATE  INDEX I_FK_FAIRE_REFERENCE_ARTICLE1
@@ -276,7 +276,7 @@ CREATE TABLE IF NOT EXISTS VOTER
    constraint pk_voter PRIMARY KEY (idTexte,codeSeqArticle,jourVote,idOrgane) ,
    constraint fk_voter_article FOREIGN KEY (idTexte,codeSeqArticle) REFERENCES ARTICLE (idTexte,codeSeqArticle),
    constraint fk_voter_organe FOREIGN KEY (idOrgane) REFERENCES ORGANE (idOrgane)
- )ENGINE = INNOBD ;
+ ) engine = innodb ;
 
 CREATE  INDEX I_FK_VOTER_ARTICLE
      ON VOTER (idTexte ASC,codeSeqArticle ASC);
