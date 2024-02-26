@@ -5,7 +5,7 @@
 
         public function displayAmendment()
         {
-            echo "Page d'affichage d'ammendement.";
+            echo "Page d'affichage d'ammendement. ";
         }
 
         public function addAmendment()
