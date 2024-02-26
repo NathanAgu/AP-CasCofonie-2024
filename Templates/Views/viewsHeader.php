@@ -1,61 +1,66 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <title>Cofonie</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Templates/Assets/Css/styleHeader.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Header</title>
 </head>
 <body>
-    <div class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
 
-                    <div class="navbar-header">
-                        <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                        <a href="index.php" class="navbar-brand"><img src="Templates/Assets/Img/Drapeau.png" style="width: 7%; "></a>
-                    </div>
-
-                    <div class="navbar-collapse collapse " id="mobile_menu">
-                        <ul class="nav navbar-nav" style="margin-left: 20%; margin-top: 0%;">
-                            <li class="active"><a href="index.php">Acceuil</a></li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">A propos de nous <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="index.php?vue=baptiste">Baptiste</a></li>
-                                    <li><a href="index.php?vue=nathan">Nathan</a></li>
-                                    <li><a href="index.php?vue=marie">Marie</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="index.php?vue=texte&action=visualiser">Textes</a></li>
-                            <li><a href="index.php?vue=loi&action=visualiser">Lois</a></li>
-                            <li><a href="index.php?vue=amendement&action=visualiser">Amendements</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <form action="" class="navbar-form">
-                                    <div class="form-group">
-                                        <div class="input-group">
-                                            <input type="search" name="search" id="" placeholder="Rechercher" class="form-control">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                                        </div>
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-
-                        <ul class="nav navbar-nav">
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span> Connexion</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <div class="p-3 bg-dark text-white">
+      <div class="flexMain">
+        <div class="flex1">
+          
         </div>
+        <div class="flex2 text-center">
+          <div><strong>Le service public de la diffusion du droit</strong></div>
+        </div>
+        <div class="flex3 text-end">
+          <img src="Templates/Assets/Img/Drapeau.png" alt="Drapeau Cofonie" style="width: 8%;">
+        </div>
+      </div>
     </div>
 
+    <div id="menuHolder">
+      <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
+        <div class="flexMain">
+          <div class="flex2">
+            <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()"><i class="fas fa-bars me-2"></i> MENU</button>
+          </div>
+          <div class="flex3 text-center" id="siteBrand">
+            Site 
+          </div>
+    
+          <div class="flex2 text-end d-block d-md-none">
+            <button class="whiteLink siteLink"><i class="fas fa-search"></i></button>
+          </div>
+    
+          <div class="flex2 text-end d-none d-md-block">
+            <button class="blackLink siteLink">Connexion</button>
+          </div>
+        </div>
+      </div>
+    
+      <div id="menuDrawer">
+        <div class="p-4 border-bottom">
+          <div class='row'>
+            <div class="col text-end ">
+              <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
+            </div>
+          </div>
+        </div>
+        <div>
+          <a href="index.php" class="nav-menu-item"><i class="fas fa-home me-3"></i>Acceuil</a>
+          <a href="index.php?view=text&action=display" class="nav-menu-item"><i class="fab fa-product-hunt me-3"></i>Textes</a>
+          <a href="index.php?view=article&action=display" class="nav-menu-item"><i class="fas fa-search me-3"></i>Articles</a>
+          <a href="index.php?view=amendment&action=display" class="nav-menu-item"><i class="fas fa-wrench me-3"></i>Amendements</a>
+          <a href="#" class="nav-menu-item"><i class="fas fa-dollar-sign me-3">A Propos De Nous</i></a>
+          <a href="#" class="nav-menu-item"><i class="fas fa-file-alt me-3"></i>Mention Légales</a>
+          <a href="#" class="nav-menu-item"><i class="fas fa-building me-3"></i>Connexion</a>
+        </div>
+      </div>
+    </div>
+
+<script src="Templates/Assets/Js/jsHeader.js"></script>
