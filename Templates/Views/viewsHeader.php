@@ -18,7 +18,7 @@
           <div><strong>Le service public de la diffusion du droit</strong></div>
         </div>
         <div class="flex3 text-end">
-          <img src="Templates/Assets/Img/Drapeau.png" alt="Drapeau Cofonie" style="width: 8%;">
+          <div><img src="Templates/Assets/Img/Drapeau.png" alt="Drapeau Cofonie" style="width: 8%;"></div>
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
             <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()"><i class="fas fa-bars me-2"></i> MENU</button>
           </div>
           <div class="flex3 text-center" id="siteBrand">
-            Site 
+            <img src="Templates/Assets/Img/logo.png" alt="Logo" style="width: 25%;">
           </div>
     
           <div class="flex2 text-end d-block d-md-none">
