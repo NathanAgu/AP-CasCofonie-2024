@@ -1,5 +1,5 @@
 <?php
-    autoload("actionArticle");
+    include("actionArticle");
 
     class ContainerArticle
     {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,25 +18,22 @@
 
                     <div class="navbar-header">
                         <button class="navbar-toggle" data-target="#mobile_menu" data-toggle="collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                        <a href="#" class="navbar-brand"><img src="Templates/Img/Drapeau.png" style="width: 7%; margin-top: 0%;"></a>
+                        <a href="index.php" class="navbar-brand"><img src="Templates/Assets/Img/Drapeau.png" style="width: 7%; "></a>
                     </div>
 
-                    <div class="navbar-collapse collapse" id="mobile_menu">
-                        <ul class="nav navbar-nav">
+                    <div class="navbar-collapse collapse " id="mobile_menu">
+                        <ul class="nav navbar-nav" style="margin-left: 20%; margin-top: 0%;">
                             <li class="active"><a href="index.php">Acceuil</a></li>
-                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">A propos <span class="caret"></span></a>
+                            <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">A propos de nous <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">About One</a></li>
-                                    <li><a href="#">About Two</a></li>
-                                    <li><a href="#">About Three</a></li>
-                                    <li><a href="#">About Four</a></li>
-                                    <li><a href="#">About Five</a></li>
-                                    <li><a href="#">About Six</a></li>
+                                    <li><a href="index.php?vue=baptiste">Baptiste</a></li>
+                                    <li><a href="index.php?vue=nathan">Nathan</a></li>
+                                    <li><a href="index.php?vue=marie">Marie</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#texte">Textes</a></li>
-                            <li><a href="#loi">Lois</a></li>
-                            <li><a href="#amendement">Amendements</a></li>
+                            <li><a href="index.php?vue=texte&action=visualiser">Textes</a></li>
+                            <li><a href="index.php?vue=loi&action=visualiser">Lois</a></li>
+                            <li><a href="index.php?vue=amendement&action=visualiser">Amendements</a></li>
                         </ul>
                         <ul class="nav navbar-nav">
                             <li>
