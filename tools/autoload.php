@@ -1,7 +1,7 @@
 <?php
     function autoload($class)
     {
-        $result = substr($class, 0, 5);
+        $result = substr($class, 0, 4);
 
         if (strcmp($result, 'ctrl') == 0)
         {
@@ -21,13 +21,13 @@
                 }
                 else
                 {
-                    if (strcmp($result, 'actio') == 0)
+                    if (strcmp($result, 'acti') == 0)
                     {
                         include_once 'Processing/Action/'.$class.'.php';
                     }
                     else
                     {
-                        if (strcmp($result, 'view') == 0) // à revoir le nom
+                        if (strcmp($result, 'view') == 0)
                         {
                             include_once 'Templates/Views/'.$class.'.php';
                         }
