@@ -1,14 +1,6 @@
 <?php
     include_once("tools/autoloader.php");
 
-    autoload("viewAmendment");
-    autoload("viewArticle");
-    autoload("viewInstitution");
-    autoload("viewOrgan");
-    autoload("viewRole");
-    autoload("viewText");
-    autoload("viewTypeInstitution");
-
     class controller
     {
         // Constructeur de la classe "controleur" 
