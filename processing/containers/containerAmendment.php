@@ -1,5 +1,5 @@
 <?php
-    autoloader("actionAmendment");
+    include("actionAmendment");
 
     class ContainerAmendment
     {
@@ -10,9 +10,9 @@
             $this->amendments = new ArrayObject();
         }
 
-        public function addAmendment($id, $content, $article)
+        public function addAmendment($id, $label, $content, $date)
         {
-            $this->amendments->append(new Amendment($id, $content, $article));
+            $this->amendments->append(new Amendment($id, $label, $content, $date));
         }
 
         public function listAmendment()

@@ -1,5 +1,5 @@
 <?php
-    autoloader("actionArticle");
+    include("actionArticle");
 
     class ContainerArticle
     {
@@ -10,9 +10,9 @@
             $this->articles = new ArrayObject();
         }
 
-        public function addArticle($id, $title, $content, $text)
+        public function addArticle($id, $title, $content)
         {
-            $this->articles->append(new Article($id, $title, $content, $text));
+            $this->articles->append(new Article($id, $title, $content));
         }
 
         public function listArticles()
