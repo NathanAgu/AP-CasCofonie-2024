@@ -191,6 +191,40 @@
             </td> -->
         </tr>
     </table>
+    <table>
+        <tr>
+            <td>User</td>
+            <td>
+                <?php
+                    if (!isset($_SESSION['user']))
+                    {
+                        echo '
+                        <form action="index.php" method="GET">
+                            <input type="hidden" name="view" value="user">
+                            <input type="hidden" name="action" value="displayUserFormRegister">
+                            <button type="submit">Inscription</button>
+                        </form>
+                        ';
+                    }
+                    else
+                    {
+                        echo '
+                        <form action="index.php" method="GET">
+                            <input type="hidden" name="view" value="user">
+                            <input type="hidden" name="action" value="displayUserFormRegister">
+                            <button type="submit">Dashboard</button>
+                        </form>
+                        ';
+                    }
+                ?>
+                <!-- <form action="index.php" method="GET">
+                    <input type="hidden" name="view" value="user">
+                    <input type="hidden" name="action" value="displayUserFormRegister">
+                    <button type="submit">Register</button>
+                </form> -->
+            </td>
+        </tr>
+    </table>
     <br><br>
 </body>
 </html>

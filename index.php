@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("controller/controller.php");
 
     if (!isset($controller))
@@ -14,6 +15,4 @@
         // Appel de la méthode d'affichage du pied de page
         $controller->displayFooter();
     }
-
-    
 ?>

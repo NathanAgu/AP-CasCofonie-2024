@@ -1,5 +1,5 @@
 <?php
-    class AccessDB
+    class accessDB
     {
         private $host;
         private $login;
@@ -12,7 +12,7 @@
             $this->host = "localhost";
             $this->login = "root";
             $this->password = "";
-            $this->dataBase = "";
+            $this->dataBase = "casCofonie";
             $this->connexion();
         }
 
@@ -26,6 +26,11 @@
             {
                 die("La connexion à la base de données à échouée ".$e->getMessage());
             }
+        }
+
+        public function getConnexion()
+        {
+            return $this->$connexionDB;
         }
     }
 ?>
