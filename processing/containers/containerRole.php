@@ -1,4 +1,6 @@
 <?php
+    include_once('../../tools/accessDB.php');
+
     class ContainerRole
     {
         private $roles;
@@ -13,11 +15,13 @@
             $this->roles->append(new Organ($id, $label));
         }
 
-        public function listOrgans()
+        public function listRoles()
         {
             foreach ($this->roles as $role)
             {
-                // Faire la liste des institutions
+                // Faire la liste des roles
+                
+                
             }
         }
     }

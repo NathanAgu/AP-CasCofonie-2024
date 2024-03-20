@@ -19,7 +19,7 @@
         {
             foreach ($this->organs as $organ)
             {
-                // Faire la liste des institutions
+                // Faire la liste des organ
             }
         }
     }

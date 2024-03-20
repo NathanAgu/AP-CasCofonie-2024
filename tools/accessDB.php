@@ -12,7 +12,7 @@
             $this->host = "localhost";
             $this->login = "root";
             $this->password = "";
-            $this->dataBase = "";
+            $this->dataBase = "cofonie_bf";
             $this->connexion();
         }
 
@@ -27,5 +27,11 @@
                 die("La connexion à la base de données à échouée ".$e->getMessage());
             }
         }
+
+
+        // Fonction de Chargement de tables
+        
+        
     }
+        
 ?>
