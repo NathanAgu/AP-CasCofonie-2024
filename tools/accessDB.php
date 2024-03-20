@@ -20,7 +20,7 @@
         {
             try
             {
-                $this->connexionDB = new PDO("mysql:host=".$this->host."; dbname".$this->dataBase.";charset=utf8", $this->login, $this->password);
+                $this->connexionDB = new PDO("mysql:host=".$this->host."; dbname=".$this->dataBase.";charset=utf8", $this->login, $this->password);
             }
             catch(PDOExecption $e)
             {
