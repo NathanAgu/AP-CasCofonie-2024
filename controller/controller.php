@@ -3,10 +3,15 @@
 
     class controller
     {
+        private $maBD
+        private $allRole;
+        
         // Constructeur de la classe "controleur" 
         public function __construct()
         {
-            
+            $this->maBD = new accesBD();
+            $this->allRole = new ContainerRole();
+            $this->loadRole();
         }
 
         // ========================= Parties à afficher =========================
@@ -159,5 +164,18 @@
                     break;
             }
         }
+
+        // ================================ Chargement Conteneurs ================================
+        public function loadRole()
+        {
+            $resultRole = $this->maBD->laod('role');
+            $nbE = 0;
+            while ($nbE < sizeof($resultRole))
+            {
+                $this->allRole->addRole($resultRole[$nbE][0],$resultRole[$nbE][1],$resultRole[$nbE][2]);
+                $nbE++;
+            }
+        }
+    
     }
 ?>
