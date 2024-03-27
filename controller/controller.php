@@ -194,7 +194,7 @@
                         {
                             // Vérification de l'email (utilisé ou non)
                             $sqlRequest = "SELECT userIdentifier FROM user WHERE userIdentifier = :userIdentifier";
-                            $query = $myDB->prepare($sqlRequest);
+                            $query = $this->myDB->prepare($sqlRequest);
                             $query->bindValue(":userIdentifier", $userIdentifier);
                             $query->execute();
                             $user = $query->fetch();
@@ -214,13 +214,12 @@
 
                         if ($valid)
                         {
-                            echo 'Top a la vachette';
                             // Hashage du mot de passe
                             $userHashPassword = password_hash($userPassword, PASSWORD_ARGON2ID);
 
                             // Insertion de l'utilisateur dans la DB
                             $sqlRequest = "INSERT INTO user (userIdentifier, userPassword) VALUES (:userIdentifier, :userPassword)";
-                            $query = $myDB->prepare($sqlRequest);
+                            $query = $this->myDB->prepare($sqlRequest);
                             $query->bindValue(":userIdentifier", $userIdentifier);
                             $query->bindValue(":userPassword", $userHashPassword);
                             $query->execute();
