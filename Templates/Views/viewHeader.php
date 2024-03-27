@@ -205,6 +205,13 @@
                             <button type="submit">Inscription</button>
                         </form>
                         ';
+                        echo '
+                        <form action="index.php" method="GET">
+                            <input type="hidden" name="view" value="user">
+                            <input type="hidden" name="action" value="displayUserFormLogin">
+                            <button type="submit">Connexion</button>
+                        </form>
+                        ';
                     }
                     else
                     {

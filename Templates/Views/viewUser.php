@@ -6,7 +6,9 @@
         public function displayUserFormRegister()
         {
             echo '
-            <form action="register.php" method="POST">
+            <form action="index.php" method="POST">
+                <input type="hidden" name="view" value="user">
+                <input type="hidden" name="action" value="addUser">
                 <input type="email" name="userIdentifier" placeholder="email" required>
                 <input type="password" name="userPassword" placeholder="mot de passe" required>
                 <input type="password" name="userPasswordConfirmation" placeholder="conf mot de passe" required>
@@ -18,7 +20,9 @@
         public function displayUserFormLogin()
         {
             echo '
-            <form action="index.php" method="post">
+            <form action="index.php" method="POST">
+                <input type="hidden" name="view" value="user">
+                <input type="hidden" name="action" value="connectUser">
                 <input type="email" name="userIdentifier" placeholder="email" required>
                 <input type="password" name="userPassword" placeholder="mot de passe" required>
                 <input type="submit">
