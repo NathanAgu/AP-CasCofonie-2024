@@ -12,7 +12,7 @@
 
         public function addRole($id, $label)
         {
-            $this->allRoles->append(new ActionRole($id, $label));
+            $this->allRoles->append(new ActionRole($id, $label, $institution));
         }
 
         public function listOrgans()
@@ -21,6 +21,11 @@
             {
                 // Faire la liste des institutions
             }
+        }
+
+        public function giveInstitutionById($id)
+        {
+            
         }
     }
 ?>

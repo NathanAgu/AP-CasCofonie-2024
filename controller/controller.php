@@ -177,5 +177,17 @@
                 $nbE++;
             }
         }
+
+        public function LoadRole()
+        {
+            $resultRole = $this->myBD->Load('role');
+            $nbE = 0;
+            
+            while ($nbE<sizeof($resultRole))
+            {
+                $this->allInstitutions->addInstitution($resultRole[$nbE][0], $resultRole[$nbE][1],);
+                $nbE++;
+            }
+        }
     }
 ?>

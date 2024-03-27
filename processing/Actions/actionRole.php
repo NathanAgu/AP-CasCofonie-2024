@@ -1,7 +1,7 @@
 <?php
     class ActionRole
     {
-        public function __construct(private int $id, private string $label, private ActionInstitution $idInsitution){}
+        public function __construct(private int $id, private string $label, private ActionInstitution $insitution){}
     
 
         public function __get($attribute)
@@ -15,7 +15,7 @@
                     return $this->label;
                     break;
                 case "idInstitution":
-                    return $this->idInsitution;
+                    return $this->insitution->id;
                     break;
             }
         }
