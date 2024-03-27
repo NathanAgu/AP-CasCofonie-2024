@@ -191,6 +191,25 @@
             </td> -->
         </tr>
     </table>
+    <table>
+        <tr>
+            <td>User</td>
+            <td>
+                <form action="index.php" method="GET">
+                    <input type="hidden" name="view" value="viewUser">
+                    <input type="hidden" name="action" value="displayUserFormRegister">
+                    <button type="submit">Register</button>
+                </form>
+            </td>
+            <td>
+                <form action="index.php" method="GET">
+                    <input type="hidden" name="view" value="viewUser">
+                    <input type="hidden" name="action" value="displayUserFormLogin">
+                    <button type="submit">Login</button>
+                </form>
+            </td>
+        </tr>
+    </table>
     <br><br>
 </body>
 </html>

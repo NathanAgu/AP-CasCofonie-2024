@@ -3,13 +3,13 @@
 
     class controller
     {
-        private $myBD;
+        private $myDB;
         private $allInstitutions;
 
         // Constructeur de la classe "controleur" 
         public function __construct()
         {
-            $this->myBD = new AccessDB();
+            $this->myDB = new AccessDB();
             $this->allInstitutions = new ContainerInstitution();
             $this->LoadInstitution();
         }
@@ -52,6 +52,9 @@
                         break;
                     case "typeInstitution":
                         $this->controllerTypeInstitution($action);
+                        break;
+                    case "user":
+                        $this->controllerUser($action);
                         break;
                 }
             }
@@ -161,6 +164,84 @@
                 case "display":
                     $view = new viewTypeInstitution();
                     $view->displayTypeInstitution();
+                    break;
+            }
+        }
+
+        public function controllerUser($action)
+        {
+            switch ($action)
+            {
+                case "displayUserFormRegister":
+
+                    break;
+                case "addUser":
+                    $valid = (boolean) true;
+
+                    if (isset($_POST["userIdentifier"]) && isset($_POST["userPassword"]) && isset($_POST["userPasswordConfirmation"]))
+                    {
+                        // Informations du form
+                        $userIdentifier = strip_tags($_POST["userIdentifier"]);
+                        $userPassword = strip_tags($_POST["userPassword"]);
+                        $userPasswordConfirmation = strip_tags($_POST["userPasswordConfirmation"]);
+
+                        // Vérification email (valide ou non)
+                        if (!filter_var($userIdentifier, FILTER_VALIDATE_EMAIL))
+                        {
+                            $valid = false;
+                        } 
+                        else 
+                        {
+                            // Vérification de l'email (utilisé ou non)
+                            $sqlRequest = "SELECT userIdentifier FROM user WHERE userIdentifier = :userIdentifier";
+                            $query = $myDB->prepare($sqlRequest);
+                            $query->bindValue(":userIdentifier", $userIdentifier);
+                            $query->execute();
+                            $user = $query->fetch();
+
+                            // Si l'email est déjà utilisé
+                            if ($user)
+                            {
+                                $valid = false;
+                            }
+                        }
+
+                        if ($userPassword != $userPasswordConfirmation)
+                        {
+                            $valid = false;
+                            $msgError = "Les mots de passe ne sont pas les mêmes !";
+                        }
+
+                        if ($valid)
+                        {
+                            echo 'Top a la vachette';
+                            // Hashage du mot de passe
+                            $userHashPassword = password_hash($userPassword, PASSWORD_ARGON2ID);
+
+                            // Insertion de l'utilisateur dans la DB
+                            $sqlRequest = "INSERT INTO user (userIdentifier, userPassword) VALUES (:userIdentifier, :userPassword)";
+                            $query = $myDB->prepare($sqlRequest);
+                            $query->bindValue(":userIdentifier", $userIdentifier);
+                            $query->bindValue(":userPassword", $userHashPassword);
+                            $query->execute();
+
+                            // Création de la session
+                            $_SESSION["user"] = [
+                                "identifier" => $userIdentifier
+                            ];
+
+                            header("Location: index.php");
+                        }
+                    }
+                    break;
+                case "displayUserFormLogin":
+
+                    break;
+                case "connectUser":
+
+                    break;
+                case "displayUserDashboard":
+
                     break;
             }
         }
