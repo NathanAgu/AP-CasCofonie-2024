@@ -3,8 +3,15 @@
 
     class controller
     {
+        private $myBD;
+        private $allInstitutions;
         // Constructeur de la classe "controleur" 
-        public function __construct(){}
+        public function __construct()
+        {
+            $this->myBD = new AccessDB();
+            $this->allInstitutions = new ContainerInstitution();
+            $this->LoadInstitution();
+        }
 
         // ========================= Parties à afficher =========================
 
@@ -99,8 +106,10 @@
             switch ($action)
             {
                 case "display":
+                    $list = $this->allInstitutions->listInstitutions();
                     $view = new viewInstitution();
-                    $view->displayInstitution();
+                    $view->displayInstitutions($list);
+                    
                     break;
             }
         }
@@ -154,6 +163,18 @@
                     $view = new viewTypeInstitution();
                     $view->displayTypeInstitution();
                     break;
+            }
+        }
+
+        // Chargement des Conteneurs
+        public function LoadInstitution()
+        {
+            $resultInstitution = $this->myBD->Load('institution');
+            $nbE = 0;
+            while ($nbE<sizeof($resultInstitution))
+            {
+                $this->allInstitutions->addInstitution($resultInstitution[$nbE][0], $resultInstitution[$nbE][1]);
+                $nbE++;
             }
         }
     }

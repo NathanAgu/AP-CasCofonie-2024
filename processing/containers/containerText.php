@@ -1,5 +1,5 @@
 <?php
-    include("actionText");
+    include_once("tools/autoload.php");
 
     class ContainerText
     {
@@ -12,7 +12,7 @@
 
         public function addText($id, $title, $finalVote, $promulgation)
         {
-            $this->texts->append(new Text($id, $title, $finalVote, $promulgation));
+            $this->texts->append(new ActionText($id, $title, $finalVote, $promulgation));
         }
 
         public function listTexts()

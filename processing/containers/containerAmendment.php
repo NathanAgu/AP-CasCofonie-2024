@@ -1,5 +1,5 @@
 <?php
-    include("actionAmendment");
+    include_once("tools/autoload.php");
 
     class ContainerAmendment
     {
@@ -12,7 +12,7 @@
 
         public function addAmendment($id, $label, $content, $date)
         {
-            $this->amendments->append(new Amendment($id, $label, $content, $date));
+            $this->amendments->append(new ActionAmendment($id, $label, $content, $date));
         }
 
         public function listAmendment()

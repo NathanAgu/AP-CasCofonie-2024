@@ -1,5 +1,5 @@
 <?php
-    include("");
+    include_once("tools/autoload.php");
 
     class ContainerOrgan
     {
@@ -12,7 +12,7 @@
 
         public function addInstitution($id, $label)
         {
-            $this->organs->append(new Organ($id, $label));
+            $this->organs->append(new ActionOrgan($id, $label));
         }
 
         public function listOrgans()

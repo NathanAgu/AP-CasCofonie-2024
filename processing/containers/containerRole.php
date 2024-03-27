@@ -1,21 +1,23 @@
 <?php
+    include_once("tools/autoload.php");
+
     class ContainerRole
     {
-        private $roles;
+        private $allRoles;
 
         public function __construct()
         {
-            $this->roles = new ArrayObject();
+            $this->allRoles = new ArrayObject();
         }
 
-        public function addInstitution($id, $label)
+        public function addRole($id, $label)
         {
-            $this->roles->append(new Organ($id, $label));
+            $this->allRoles->append(new ActionRole($id, $label));
         }
 
         public function listOrgans()
         {
-            foreach ($this->roles as $role)
+            foreach ($this->allRoles as $role)
             {
                 // Faire la liste des institutions
             }

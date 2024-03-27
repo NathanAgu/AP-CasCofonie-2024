@@ -1,5 +1,5 @@
 <?php
-    include("actionInstitution");
+    include_once("tools/autoload.php");
 
     class ContainerInstitution
     {
@@ -12,15 +12,19 @@
 
         public function addInstitution($id, $label)
         {
-            $this->institutions->append(new Institution($id, $label));
+            $this->institutions->append(new ActionInstitution($id, $label));
         }
 
         public function listInstitutions()
         {
-            foreach ($this->institutions as $institution)
-            {
-                // Faire la liste des institutions
-            }
+            $liste = '';
+		    foreach ($this->institutions as $institution)
+		    	{	
+                    $liste = $liste.$institution->displayInstitution();
+		    	}
+		    return $liste;
         }
+
+        
     }
 ?>
