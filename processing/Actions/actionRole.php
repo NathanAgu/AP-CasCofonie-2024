@@ -1,7 +1,7 @@
 <?php
     class ActionRole
     {
-        public function __construct(private int $id, private string $label, private Institution $idInsitution){}
+        public function __construct(private int $id, private string $label, private ActionInstitution $idInsitution){}
     
 
         public function __get($attribute)

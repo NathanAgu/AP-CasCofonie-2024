@@ -1,9 +1,10 @@
 <?php
+
     class viewInstitution
     {
         public function __construct(){}
 
-        public function displayInstitution($list)
+        public function displayInstitutions($list)
         {
             $listInstitution = explode("|",$list);
 

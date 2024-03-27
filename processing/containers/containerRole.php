@@ -1,4 +1,6 @@
 <?php
+    include_once("tools/autoload.php");
+
     class ContainerRole
     {
         private $allRoles;
@@ -10,7 +12,7 @@
 
         public function addRole($id, $label)
         {
-            $this->allRoles->append(new Role($id, $label));
+            $this->allRoles->append(new ActionRole($id, $label));
         }
 
         public function listOrgans()

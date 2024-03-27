@@ -23,7 +23,7 @@
                 {
                     if (strcmp($result, 'Acti') == 0)
                     {
-                        include_once 'Processing/Action/'.$class.'.php';
+                        include_once 'Processing/Actions/'.$class.'.php';
                     }
                     else
                     {

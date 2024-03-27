@@ -106,8 +106,10 @@
             switch ($action)
             {
                 case "display":
+                    $list = $this->allInstitutions->listInstitutions();
                     $view = new viewInstitution();
-                    $view->displayInstitution();
+                    $view->displayInstitutions($list);
+                    
                     break;
             }
         }

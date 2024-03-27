@@ -31,8 +31,8 @@
 
         public function displayInstitution()
         {
-            $list = $this->id . ' | ' . $this->label . ' | ';
-            return $list;
+            $result = $this->id . ' | ' . $this->label . ' | ';
+            return $result;
         }
     }
 ?>
