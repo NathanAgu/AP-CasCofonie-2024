@@ -1,5 +1,5 @@
 <?php
-    class Organ
+    class ActionOrgan
     {
         public function __construct(private int $id, private string $label){}
     }

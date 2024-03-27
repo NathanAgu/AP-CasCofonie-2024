@@ -1,5 +1,5 @@
 <?php
-    class Institution
+    class ActionInstitution
     {
         public function __construct(private int $id, private string $label){}
 
@@ -27,6 +27,12 @@
                     $this->label = $value;
                     break;
             }
+        }
+
+        public function displayInstitution()
+        {
+            $list = $this->id . ' | ' . $this->label . ' | ';
+            return $list;
         }
     }
 ?>

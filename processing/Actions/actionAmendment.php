@@ -1,5 +1,5 @@
 <?php
-    class Amendment
+    class ActionAmendment
     {
         public function __construct(private int $id, private string $label, private string $content, private dateTime $date) {}
 

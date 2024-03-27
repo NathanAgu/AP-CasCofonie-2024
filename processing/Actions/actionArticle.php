@@ -1,5 +1,5 @@
 <?php
-    class Article
+    class ActionArticle
     {
         public function __construct(private int $id, private string $title, private string $content) {}
 

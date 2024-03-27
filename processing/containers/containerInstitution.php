@@ -17,10 +17,12 @@
 
         public function listInstitutions()
         {
-            foreach ($this->institutions as $institution)
-            {
-                // Faire la liste des institutions
-            }
+            $liste = '';
+		    foreach ($this->institutions as $institution)
+		    	{	
+                    $liste = $liste.$institution->displayInstitution();
+		    	}
+		    return $liste;
         }
     }
 ?>

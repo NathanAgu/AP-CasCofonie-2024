@@ -9,19 +9,19 @@
         }
         else
         {
-            if (strcmp($result, 'acce') == 0)
+            if (strcmp($result, 'Acce') == 0)
             {
                 include_once 'Tools/'.$class.'.php';
             }
             else
             {
-                if (strcmp($result, 'cont') == 0)
+                if (strcmp($result, 'Cont') == 0)
                 {
                     include_once 'Processing/Containers/'.$class.'.php';
                 }
                 else
                 {
-                    if (strcmp($result, 'acti') == 0)
+                    if (strcmp($result, 'Acti') == 0)
                     {
                         include_once 'Processing/Action/'.$class.'.php';
                     }
