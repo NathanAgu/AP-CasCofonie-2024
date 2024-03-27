@@ -5,6 +5,7 @@
     {
         private $myBD;
         private $allInstitutions;
+
         // Constructeur de la classe "controleur" 
         public function __construct()
         {
