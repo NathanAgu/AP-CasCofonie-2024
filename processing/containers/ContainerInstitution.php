@@ -12,6 +12,7 @@
 
         public function addInstitution($id, $label)
         {
+            
             $this->institutions->append(new ActionInstitution($id, $label));
         }
 
@@ -25,6 +26,20 @@
 		    return $liste;
         }
 
-        
+        public function giveInstitutionById($id)
+        {
+            $find = false;
+            $findInstitution = null;
+
+            foreach($this->institutions as $institution)
+            {
+                if ($institution->id == $id)
+                {
+                    $find = true;
+                    $findInstitution = $institution;
+                }
+            }
+            return $findInstitution;
+        }
     }
 ?>

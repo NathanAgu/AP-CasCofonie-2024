@@ -5,12 +5,17 @@
     {
         private $myBD;
         private $allInstitutions;
+        private $allRole;
         // Constructeur de la classe "controleur" 
         public function __construct()
         {
             $this->myBD = new AccessDB();
+
             $this->allInstitutions = new ContainerInstitution();
             $this->LoadInstitution();
+
+            $this->allRole = new ContainerRole();
+            
         }
 
         // ========================= Parties à afficher =========================
@@ -185,7 +190,8 @@
             
             while ($nbE<sizeof($resultRole))
             {
-                $this->allInstitutions->addInstitution($resultRole[$nbE][0], $resultRole[$nbE][1],);
+                $ObjectInstitution = $this->allInstitutions->giveInstitutionById($resultRole[$nbE][0]);
+                $this->allRole->addRole($resultRole[$nbE][0], $resultRole[$nbE][1],);
                 $nbE++;
             }
         }
