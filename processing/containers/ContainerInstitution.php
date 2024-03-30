@@ -34,7 +34,7 @@
 
             while ((!$find) && ($iInstitution->valid()))
             {
-                if ($iInstitution->current()->id == $id)
+                if ($iInstitution->current()->idInstitution == $id)
                 {
                     $find = true;
                     $findInstitution = $iInstitution->current();

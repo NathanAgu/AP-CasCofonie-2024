@@ -27,23 +27,21 @@
 
         public function giveTextById($id)
         {
-            $find = false;
-            $findText = null;
-            $iText = $this->texts->getIterator();
+            $find=false;
+		    $findText=null;
+		    $iText = $this->texts->getIterator();
+		    while ((!$find)&&($iText->valid()))
+		    {
 
-            while ((!$find) && ($iText->valid()))
-            {
-                if ($iText->current()->id == $id)
-                {
-                    $find = true;
-                    $findText = $iText->current();
-                }
-                else
-                {
-                    $iText->next();
-                }
-            }
-            return $findText;
+		    	if ($iText->current()->giveIdText() == $id)
+		    	{        
+		    		$find=true;
+		    		$findText = $iText->current();
+		    	}
+		    	else
+		    		$iText->next();
+		    }
+		    return $findText;
         }
 
     }

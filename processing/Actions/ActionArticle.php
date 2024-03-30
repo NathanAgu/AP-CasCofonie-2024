@@ -1,20 +1,23 @@
 <?php
     class ActionArticle
     {
-        public function __construct(private int $id, private string $title, private string $content) {}
+        public function __construct(private ActionText $text, private int $idSeq, private string $titleArticle, private string $textArticle) {}
 
         public function __get($attribute)
         {
             switch ($attribute)
             {
-                case "id":
-                    return $this->id;
+                case "text":
+                    $this->text->titleText;
                     break;
-                case "title":
-                    return $this->title;
+                case "idSeq":
+                    $this->idSeq;
                     break;
-                case "content":
-                    return $this->content;
+                case "titleArticle":
+                    $this->titleArticle;
+                    break;
+                case "textArticle":
+                    $this->textArticle;
                     break;
             }
         }
@@ -23,16 +26,19 @@
         {
             switch ($attribute)
             {
-                case "id":
-                    $this->id = $value;
+                case "titleArticle":
+                    $this->titleArticle = $value;
                     break;
-                case "title":
-                    $this->title = $value;
-                    break;
-                case "content":
-                    $this->content = $value;
+                case "textArticle":
+                    $this->textArticle = $value;
                     break;
             }
+        }
+
+        public function displayArticle()
+        {
+            $result = $this->text->titleText . ' | ' . $this->idSeq . ' | ' . $this->titleArticle . ' | ' . $this->textArticle . ' | ' ;
+            return $result;
         }
     }
 ?>

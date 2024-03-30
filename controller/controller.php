@@ -10,6 +10,7 @@
 
         private $allOrgans;
         private $allTexts;
+        private $allArticles;
 
         // Constructeur de la classe "controleur" 
         public function __construct()
@@ -32,6 +33,9 @@
 
             $this->allTexts = new ContainerText();
             $this->LoadText();
+
+            $this->allArticles = new ContainerArticle();
+            $this->LoadArticle();
         }
 
         // Méthode pour afficher l'entête de la page du site
@@ -108,8 +112,9 @@
             switch ($action)
             {
                 case "display":
+                    $list = $this->allArticles->listArticles();
                     $view = new viewArticle();
-                    $view->displayArticle();
+                    $view->displayArticle($list);
                     break;
                 case "add":
                     $view = new viewArticle();
@@ -118,6 +123,26 @@
                 case "remove":
                     $view = new viewArticle();
                     $view->removeArticle();
+                    break;
+            }
+        }
+
+        public function controllerText($action)
+        {
+            switch ($action)
+            {
+                case "display":
+                    $list = $this->allTexts->listTexts();
+                    $view = new viewText();
+                    $view->displayText($list);
+                    break;
+                case "add":
+                    $view = new viewText();
+                    $view->addText();
+                    break;
+                case "remove":
+                    $view = new viewText();
+                    $view->removeText();
                     break;
             }
         }
@@ -138,8 +163,6 @@
                 case "input":
                     $labelInstitution = $_POST['labelInstitution'];
                     $idInstitution = $this->myBD->giveNextId('institution');
-                    var_dump($idInstitution);
-
                     $this->allInstitutions->addInstitution($idInstitution, $labelInstitution);
                     $this->myBD->addInstitutionBD($idInstitution, $labelInstitution);
                     echo "Ajout réussi !";
@@ -167,26 +190,6 @@
                     $list = $this->allRoles->listRole();
                     $view = new viewRole();
                     $view->displayRole($list);
-                    break;
-            }
-        }
-
-        public function controllerText($action)
-        {
-            switch ($action)
-            {
-                case "display":
-                    $list = $this->allTexts->listTexts();
-                    $view = new viewText();
-                    $view->displayText($list);
-                    break;
-                case "add":
-                    $view = new viewText();
-                    $view->addText();
-                    break;
-                case "remove":
-                    $view = new viewText();
-                    $view->removeText();
                     break;
             }
         }
@@ -262,6 +265,19 @@
             {
                 $objectInstitution = $this->allInstitutions->giveInstitutionById($resultText[$nbE][1]);
                 $this->allTexts->addText($resultText[$nbE][0], $objectInstitution, $resultText[$nbE][2], $resultText[$nbE][3], $resultText[$nbE][4]);
+                $nbE++;
+            }
+        }
+
+        public function LoadArticle()
+        {
+            $resultArticle = $this->myBD->Load('article');
+
+            $nbE = 0;
+            while ($nbE<sizeof($resultArticle))
+            {
+                $objectText = $this->allTexts->giveTextById($resultArticle[$nbE][0]);
+                $this->allArticles->addArticle($objectText, $resultArticle[$nbE][1], $resultArticle[$nbE][2], $resultArticle[$nbE][3]);
                 $nbE++;
             }
         }

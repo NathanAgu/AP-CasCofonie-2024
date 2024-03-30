@@ -72,6 +72,9 @@
 				case 'TEXTE':
 					$stringQuery.='texte';
 					break;
+				case 'ARTICLE':
+					$stringQuery.='article';
+					break;
 	    		default:
 	    			die('Pas une table valide');
 	    			break;

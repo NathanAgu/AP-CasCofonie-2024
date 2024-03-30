@@ -1,14 +1,14 @@
 <?php
     class ActionInstitution
     {
-        public function __construct(private int $id, private string $label){}
+        public function __construct(private int $idInstitution, private string $label){}
 
         public function __get($attribute)
         {
             switch ($attribute)
             {
-                case "id":
-                    return $this->id;
+                case "idInstitution":
+                    return $this->idInstitution;
                     break;
                 case "label":
                     return $this->label;
@@ -20,8 +20,8 @@
         {
             switch ($attribute)
             {
-                case "id":
-                    $this->id = $value;
+                case "idInstitution":
+                    $this->idInstitution = $value;
                     break;
                 case "label":
                     $this->label = $value;
@@ -31,7 +31,7 @@
 
         public function displayInstitution()
         {
-            $result = $this->id . ' | ' . $this->label . ' | ';
+            $result = $this->idInstitution . ' | ' . $this->label . ' | ';
             return $result;
         }
     }

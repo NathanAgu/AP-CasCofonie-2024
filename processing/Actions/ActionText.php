@@ -1,20 +1,20 @@
 <?php
     class ActionText
     {
-        public function __construct(private int $id, private ActionInstitution $institution, private string $title, private int $finalVoteText, private int $promulgationText) {}
+        public function __construct(private int $idText, private ActionInstitution $institution, private string $titleText, private int $finalVoteText, private int $promulgationText) {}
 
         public function __get($attribute)
         {
             switch ($attribute)
             {
-                case 'id':
-                    $this->id;
+                case 'idText':
+                    $this->idText;
                     break;
                 case 'institution':
                     $this->institution->label;
                     break;
-                case 'title':
-                    $this->title;
+                case 'titleText':
+                    $this->titleText;
                     break;
                 case 'finalVoteText':
                     $this->finalVoteText;
@@ -29,6 +29,8 @@
         {
             switch ($attribute)
             {
+                case 'idText':
+                    $this->idText;
                 case "title":
                     $this->title = $value;
                     break;
@@ -43,8 +45,13 @@
 
         public function displayText()
         {
-            $result = $this->id . ' | ' . $this->institution->label . ' | ' . $this->title . ' | ' . $this->finalVoteText . ' | ' . $this->promulgationText . ' | ' ;
+            $result = $this->idText . ' | ' . $this->institution->label . ' | ' . $this->titleText . ' | ' . $this->finalVoteText . ' | ' . $this->promulgationText . ' | ' ;
             return $result;
+        }
+
+        public function giveIdText()
+        {
+            return $this->idText;
         }
     }
 ?>
