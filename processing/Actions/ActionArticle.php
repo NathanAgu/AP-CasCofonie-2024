@@ -1,7 +1,7 @@
 <?php
-    class Institution
+    class ActionArticle
     {
-        public function __construct(private int $id, private string $label){}
+        public function __construct(private int $id, private string $title, private string $content) {}
 
         public function __get($attribute)
         {
@@ -10,8 +10,11 @@
                 case "id":
                     return $this->id;
                     break;
-                case "label":
-                    return $this->label;
+                case "title":
+                    return $this->title;
+                    break;
+                case "content":
+                    return $this->content;
                     break;
             }
         }
@@ -23,8 +26,11 @@
                 case "id":
                     $this->id = $value;
                     break;
-                case "label":
-                    $this->label = $value;
+                case "title":
+                    $this->title = $value;
+                    break;
+                case "content":
+                    $this->content = $value;
                     break;
             }
         }

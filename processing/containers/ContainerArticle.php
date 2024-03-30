@@ -1,5 +1,5 @@
 <?php
-    include("actionArticle");
+    include_once("tools/autoload.php");
 
     class ContainerArticle
     {
@@ -12,7 +12,7 @@
 
         public function addArticle($id, $title, $content)
         {
-            $this->articles->append(new Article($id, $title, $content));
+            $this->articles->append(new ActionArticle($id, $title, $content));
         }
 
         public function listArticles()

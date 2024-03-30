@@ -1,7 +1,7 @@
 <?php
-    class Article
+    class ActionTypeInstitution
     {
-        public function __construct(private int $id, private string $title, private string $content) {}
+        public function __construct(private int $id, private string $label){}
 
         public function __get($attribute)
         {
@@ -10,11 +10,8 @@
                 case "id":
                     return $this->id;
                     break;
-                case "title":
-                    return $this->title;
-                    break;
-                case "content":
-                    return $this->content;
+                case "label":
+                    return $this->label;
                     break;
             }
         }
@@ -26,13 +23,16 @@
                 case "id":
                     $this->id = $value;
                     break;
-                case "title":
-                    $this->title = $value;
-                    break;
-                case "content":
-                    $this->content = $value;
+                case "label":
+                    $this->label = $value;
                     break;
             }
+        }
+
+        public function displayTypeInstitution()
+        {
+            $result = $this->id . ' | ' . $this->label . ' | ';
+            return $result;
         }
     }
 ?>

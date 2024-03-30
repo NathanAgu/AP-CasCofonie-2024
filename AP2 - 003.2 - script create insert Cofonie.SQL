@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS APPARTENIR
  (
    idInstitution int NOT NULL ,
    idTypeInstitution int not NULL  ,
-   constraint pk_institution PRIMARY KEY (idInstitution? idTypeInstitution) ,
+   constraint pk_institution PRIMARY KEY (idInstitution, idTypeInstitution) ,
     constraint fk_institution_Institution FOREIGN KEY (idInstitution) REFERENCES INSTITUTION (idInstitution) ,
    constraint fk_institution_typeInstitution FOREIGN KEY (idTypeInstitution) REFERENCES TYPEINSTITUTION (idTypeInstitution) 
 
@@ -291,3 +291,14 @@ insert into VOTER values (1,2,'2019-02-13',2,120,201);
 
 
 
+TYPEINSTITUTION (idTypeInstitution (PK), libelleTypeInstitution)
+INSTITUTION (idInstitution (PK), libelleInstitution)
+ROLEINSTITUTION (idRole (PK), idInstitution (FK), libelleRole)
+APPARTENIR (idInstitution (FK), idTypeInstitution (FK)) -- Relation many-to-many entre INSTITUTION et TYPEINSTITUTION
+ORGANE (idOrgane (PK), libOrgane, nbrPersonnesOrgane)
+COMPRENDRE (idInstitution (FK), idOrgane (FK)) -- Relation many-to-many entre INSTITUTION et ORGANE
+TEXTE (idTexte (PK), idInstitution (FK), titreTexte, voteFinalTexte, promulgationTexte)
+ARTICLE (idTexte (FK), codeSeqArticle (PK), titreArticle, texteArtitcle)
+AMENDEMENT (idTexte (FK), codeSeqArticle (FK), codeSeqAmendement (PK), libelleAmendement, textAmendement, dateAmendement)
+FAIREREFERENCE (idTexte1 (FK), codeSeqArticle1 (FK), idTexte2 (FK), codeSeqArticle2 (FK)) -- Relation reflexive entre ARTICLE
+VOTER (idTexte (FK), codeSeqArticle (FK), jourVote, idOrgane (FK), nbrVoixPour, nbrVoixContre)
