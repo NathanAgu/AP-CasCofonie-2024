@@ -28,5 +28,11 @@
                     break;
             }
         }
+
+        public function displayTypeInstitution()
+        {
+            $result = $this->id . ' | ' . $this->label . ' | ';
+            return $result;
+        }
     }
 ?>

@@ -12,15 +12,38 @@
 
         public function addTypeInstitution($id, $label)
         {
-            $this->typeInstitutions->append(new ActionTypeInstitutions($id, $label));
+            $this->typeInstitutions->append(new ActionTypeInstitution($id, $label));
         }
 
         public function listTypeInstitution()
         {
-            foreach ($this->typeInstitutions as $typeInstitution)
+            $liste = '';
+		    foreach ($this->typeInstitutions as $typeInstitution)
+		    	{	
+                    $liste = $liste.$typeInstitution->displayTypeInstitution();
+		    	}
+		    return $liste;
+        }
+
+        public function giveTypeInstitutionById($id)
+        {
+            $find = false;
+            $findTypeInstitution = null;
+            $iTypeInstitution = $this->typeInstitutions->getIterator();
+
+            while ((!$find) && ($iTypeInstitution->valid()))
             {
-                // Faire la liste des types d'institution
+                if ($iTypeInstitution->current()->id == $id)
+                {
+                    $find = true;
+                    $findTypeInstitution = $iTypeInstitution->current();
+                }
+                else
+                {
+                    $iTypeInstitution->next();
+                }
             }
+            return $findTypeInstitution;
         }
     }
 ?>

@@ -63,6 +63,9 @@
 	    		case 'ROLE':
 	    			$stringQuery.='roleInstitution';
 	    			break;
+				case 'TYPEINSTITUTION':
+					$stringQuery.='typeinstitution';
+					break;
 	    		default:
 	    			die('Pas une table valide');
 	    			break;

@@ -6,6 +6,8 @@
         private $myBD;
         private $allInstitutions;
         private $allRole;
+        private $allTypeInstitutions;
+
         // Constructeur de la classe "controleur" 
         public function __construct()
         {
@@ -17,6 +19,8 @@
             $this->allRole = new ContainerRole();
             $this->LoadRole();
             
+            $this->allTypeInstitutions = new ContainerTypeInstitution();
+            $this->LoadTypeInstitution();
         }
 
         // ========================= Parties à afficher =========================
@@ -167,13 +171,18 @@
             switch ($action)
             {
                 case "display":
+                    $list = $this->allTypeInstitutions->listTypeInstitution();
                     $view = new viewTypeInstitution();
-                    $view->displayTypeInstitution();
+                    $view->displayTypeInstitutions($list);
                     break;
             }
         }
 
-        // Chargement des Conteneurs
+
+        // ------------------------------------------------------------------------------
+        //                          Chargement des Conteneurs
+        // ------------------------------------------------------------------------------
+
         public function LoadInstitution()
         {
             $resultInstitution = $this->myBD->Load('institution');
@@ -188,9 +197,7 @@
         public function LoadRole()
         {
             $resultRole = $this->myBD->Load('role');
-
-            $nbE = 0;
-            
+            $nbE = 0;  
             while ($nbE<sizeof($resultRole))
             {
                 $objectInstitution = $this->allInstitutions->giveInstitutionById($resultRole[$nbE][1]);
@@ -199,5 +206,16 @@
                 $nbE++;
             }
         }
+
+       public function LoadTypeInstitution()
+       {
+            $resultTypeInsitution = $this->myBD->Load('typeinstitution');
+            $nbE = 0;
+            while ($nbE<sizeof($resultTypeInsitution))
+            {
+                $this->allTypeInstitutions->addTypeInstitution($resultTypeInsitution[$nbE][0], $resultTypeInsitution[$nbE][1]);
+                $nbE++;
+            }
+       }
     }
 ?>
