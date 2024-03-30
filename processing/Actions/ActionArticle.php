@@ -26,6 +26,12 @@
         {
             switch ($attribute)
             {
+                case "text":
+                    $this->text = $value;
+                    break;
+                case "idSeq":
+                    $this->idSeq = $value;
+                    break;
                 case "titleArticle":
                     $this->titleArticle = $value;
                     break;

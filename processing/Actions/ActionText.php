@@ -30,8 +30,12 @@
             switch ($attribute)
             {
                 case 'idText':
-                    $this->idText;
-                case "title":
+                    $this->idText = $value;
+                    break;
+                case 'institution':
+                    $this->institution = $value;
+                    break;
+                case "titleText":
                     $this->title = $value;
                     break;
                 case "finalVoteText":
