@@ -32,5 +32,11 @@
                     break;
             }
         }
+
+        public function displayRole()
+        {
+            $result = $this->id . ' | ' . $this->label . ' | ' . $this->insitution->label . ' | ' ;
+            return $result;
+        }
     }
 ?>

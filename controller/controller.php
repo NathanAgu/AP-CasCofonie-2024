@@ -15,6 +15,7 @@
             $this->LoadInstitution();
 
             $this->allRole = new ContainerRole();
+            $this->LoadRole();
             
         }
 
@@ -135,8 +136,9 @@
             switch ($action)
             {
                 case "display":
+                    $list = $this->allRole->listRole();
                     $view = new viewRole();
-                    $view->displayRole();
+                    $view->displayRole($list);
                     break;
             }
         }
@@ -186,12 +188,14 @@
         public function LoadRole()
         {
             $resultRole = $this->myBD->Load('role');
+
             $nbE = 0;
             
             while ($nbE<sizeof($resultRole))
             {
-                $ObjectInstitution = $this->allInstitutions->giveInstitutionById($resultRole[$nbE][0]);
-                $this->allRole->addRole($resultRole[$nbE][0], $resultRole[$nbE][1],);
+                $objectInstitution = $this->allInstitutions->giveInstitutionById($resultRole[$nbE][1]);
+
+                $this->allRole->addRole($resultRole[$nbE][0], $resultRole[$nbE][2], $objectInstitution);
                 $nbE++;
             }
         }

@@ -30,13 +30,18 @@
         {
             $find = false;
             $findInstitution = null;
+            $iInstitution = $this->institutions->getIterator();
 
-            foreach($this->institutions as $institution)
+            while ((!$find) && ($iInstitution->valid()))
             {
-                if ($institution->id == $id)
+                if ($iInstitution->current()->id == $id)
                 {
                     $find = true;
-                    $findInstitution = $institution;
+                    $findInstitution = $iInstitution->current();
+                }
+                else
+                {
+                    $iInstitution->next();
                 }
             }
             return $findInstitution;

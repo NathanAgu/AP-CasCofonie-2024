@@ -10,18 +10,21 @@
             $this->allRoles = new ArrayObject();
         }
 
-        public function addRole($id, $label)
+        public function addRole($id, $label,$instituton)
         {
-            $newRole = new ActionRole($id, $label,$idInstituton);
+            
+            $newRole = new ActionRole($id, $label,$instituton);
             $this->allRoles->append($newRole);
         }
 
-        public function listOrgans()
+        public function listRole()
         {
-            foreach ($this->allRoles as $role)
-            {
-                // Faire la liste des institutions
-            }
+            $liste = '';
+		    foreach ($this->allRoles as $role)
+		    	{	
+                    $liste = $liste.$role->displayRole();
+		    	}
+		    return $liste;
         }
 
     }

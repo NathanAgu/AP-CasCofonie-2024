@@ -54,21 +54,20 @@
 
 	    private function specialCase($stringQuery,$uneTable)
 	    {
-	    		$uneTable = strtoupper($uneTable);
-	    		switch ($uneTable) 
-				{
-					case 'INSTITUTION':
-						$stringQuery.='institution';
-						break;
-	    			case 'ROLE':
-	    				$stringQuery.='roleInstitution';
-	    				break;
-	    			default:
-	    				die('Pas une table valide');
-	    				break;
-	    		}
-
-	    		return $stringQuery.";";
+	    	$uneTable = strtoupper($uneTable);
+	    	switch ($uneTable) 
+			{
+				case 'INSTITUTION':
+					$stringQuery.='institution';
+					break;
+	    		case 'ROLE':
+	    			$stringQuery.='roleInstitution';
+	    			break;
+	    		default:
+	    			die('Pas une table valide');
+	    			break;
+	    	}
+	    	return $stringQuery.";";
 	    }
     }
 ?>
