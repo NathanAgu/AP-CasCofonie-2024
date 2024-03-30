@@ -9,10 +9,13 @@
         private $allTypeInstitutions;
 
         private $allOrgans;
+        private $allTexts;
 
         // Constructeur de la classe "controleur" 
         public function __construct()
         {
+            // On viens charger tout nos conteneurs avec la base de donnée
+
             $this->myBD = new AccessDB();
 
             $this->allInstitutions = new ContainerInstitution();
@@ -26,15 +29,17 @@
 
             $this->allOrgans = new ContainerOrgan();
             $this->LoadOrgan();
-        }
 
-        // ========================= Parties à afficher =========================
+            $this->allTexts = new ContainerText();
+            $this->LoadText();
+        }
 
         // Méthode pour afficher l'entête de la page du site
         public function displayHeader()
         {
             require 'Templates/Views/viewHeader.php';
         }
+
 
         // Méthode pour afficher la page du site (Contenu central)
         public function displayPage()
@@ -78,6 +83,7 @@
         }
 
         // ================================ Controleur classes ================================
+
         public function controllerAmendment($action)
         {
             switch ($action)
@@ -124,7 +130,19 @@
                     $list = $this->allInstitutions->listInstitutions();
                     $view = new viewInstitution();
                     $view->displayInstitutions($list);
-                    
+                    break;
+                case "add":
+                    $view = new viewInstitution();
+                    $view->addInstitution();
+                    break;
+                case "input":
+                    $labelInstitution = $_POST['labelInstitution'];
+                    $idInstitution = $this->myBD->giveNextId('institution');
+                    var_dump($idInstitution);
+
+                    $this->allInstitutions->addInstitution($idInstitution, $labelInstitution);
+                    $this->myBD->addInstitutionBD($idInstitution, $labelInstitution);
+                    echo "Ajout réussi !";
                     break;
             }
         }
@@ -158,8 +176,9 @@
             switch ($action)
             {
                 case "display":
+                    $list = $this->allTexts->listTexts();
                     $view = new viewText();
-                    $view->displayText();
+                    $view->displayText($list);
                     break;
                 case "add":
                     $view = new viewText();
@@ -231,6 +250,18 @@
             while ($nbE<sizeof($resultOrgan))
             {
                 $this->allOrgans->addOrgan($resultOrgan[$nbE][0], $resultOrgan[$nbE][1], $resultOrgan[$nbE][2]);
+                $nbE++;
+            }
+        }
+
+        public function LoadText()
+        {
+            $resultText = $this->myBD->Load('texte');
+            $nbE = 0;
+            while ($nbE<sizeof($resultText))
+            {
+                $objectInstitution = $this->allInstitutions->giveInstitutionById($resultText[$nbE][1]);
+                $this->allTexts->addText($resultText[$nbE][0], $objectInstitution, $resultText[$nbE][2], $resultText[$nbE][3], $resultText[$nbE][4]);
                 $nbE++;
             }
         }

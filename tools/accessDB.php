@@ -69,11 +69,50 @@
 				case 'ORGANE':
 					$stringQuery.='organe';
 					break;
+				case 'TEXTE':
+					$stringQuery.='texte';
+					break;
 	    		default:
 	    			die('Pas une table valide');
 	    			break;
 	    	}
 	    	return $stringQuery.";";
 	    }
+
+		public function giveNextId($table)
+		{
+			$stringQuery = $this->specialCase("SELECT * FROM ",$table);
+			$requete = $this->conn->prepare($stringQuery);
+
+			if($requete->execute())
+			{
+				$nb=0;
+				while($row = $requete->fetch(PDO::FETCH_NUM))
+				{
+					$nb = $row[0];
+				}
+				return $nb+1;
+			}
+			else
+			{
+				die('Erreur sur donneProchainIdentifiant : '+$requete->errorCode());
+			}
+		}
+
+
+		// Fonction d'ajout dans la BD
+
+		public function addInstitutionBD($id, $label)
+		{
+			$idInstitution = $this->giveNextId("INSTITUTION");
+			$request = $this->conn->prepare("INSERT INTO institution (idInstitution, libelleInstitution) VALUES (?,?)");
+			$request->bindValue(1, $id);
+			$request->bindValue(2, $label);
+			if(!$request->execute())
+			{
+				die("Erreur dans insert Institution : " .$request->errorCode());
+			}
+			return $idInstitution;
+		}
     }
 ?>
