@@ -5,8 +5,10 @@
     {
         private $myBD;
         private $allInstitutions;
-        private $allRole;
+        private $allRoles;
         private $allTypeInstitutions;
+
+        private $allOrgans;
 
         // Constructeur de la classe "controleur" 
         public function __construct()
@@ -16,11 +18,14 @@
             $this->allInstitutions = new ContainerInstitution();
             $this->LoadInstitution();
 
-            $this->allRole = new ContainerRole();
+            $this->allRoles = new ContainerRole();
             $this->LoadRole();
             
             $this->allTypeInstitutions = new ContainerTypeInstitution();
             $this->LoadTypeInstitution();
+
+            $this->allOrgans = new ContainerOrgan();
+            $this->LoadOrgan();
         }
 
         // ========================= Parties à afficher =========================
@@ -129,8 +134,9 @@
             switch ($action)
             {
                 case "display":
+                    $list = $this->allOrgans->listOrgan();
                     $view = new viewOrgan();
-                    $view->displayOrgan();
+                    $view->displayOrgan($list);
                     break;
             }
         }
@@ -140,7 +146,7 @@
             switch ($action)
             {
                 case "display":
-                    $list = $this->allRole->listRole();
+                    $list = $this->allRoles->listRole();
                     $view = new viewRole();
                     $view->displayRole($list);
                     break;
@@ -202,13 +208,13 @@
             {
                 $objectInstitution = $this->allInstitutions->giveInstitutionById($resultRole[$nbE][1]);
 
-                $this->allRole->addRole($resultRole[$nbE][0], $resultRole[$nbE][2], $objectInstitution);
+                $this->allRoles->addRole($resultRole[$nbE][0], $resultRole[$nbE][2], $objectInstitution);
                 $nbE++;
             }
         }
 
-       public function LoadTypeInstitution()
-       {
+        public function LoadTypeInstitution()
+        {
             $resultTypeInsitution = $this->myBD->Load('typeinstitution');
             $nbE = 0;
             while ($nbE<sizeof($resultTypeInsitution))
@@ -216,6 +222,17 @@
                 $this->allTypeInstitutions->addTypeInstitution($resultTypeInsitution[$nbE][0], $resultTypeInsitution[$nbE][1]);
                 $nbE++;
             }
-       }
+        }
+
+        public function LoadOrgan()
+        {
+            $resultOrgan = $this->myBD->Load('organe');
+            $nbE = 0;
+            while ($nbE<sizeof($resultOrgan))
+            {
+                $this->allOrgans->addOrgan($resultOrgan[$nbE][0], $resultOrgan[$nbE][1], $resultOrgan[$nbE][2]);
+                $nbE++;
+            }
+        }
     }
 ?>
