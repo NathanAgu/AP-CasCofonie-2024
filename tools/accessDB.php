@@ -80,7 +80,6 @@
 					break;
 	    		default:
 	    			die('Pas une table valide');
-	    			break;
 	    	}
 	    	return $stringQuery.";";
 	    }
