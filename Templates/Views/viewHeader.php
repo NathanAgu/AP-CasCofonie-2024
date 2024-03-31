@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="Templates/Assets/Css/style.css">
 
-    <title>Document</title>
+    <title>Page Cofonie TEST</title>
 </head>
 <body>
+    <h1 align="center">Page TEST d'Affichages</h1><br>
     <table>
         <tr>
             <td>Ammendement</td>
