@@ -9,10 +9,15 @@
         private $allTypeInstitutions;
 
         private $allOrgans;
+        private $allTexts;
+        private $allArticles;
+        private $allAmendments;
 
         // Constructeur de la classe "controleur" 
         public function __construct()
         {
+            // On viens charger tout nos conteneurs avec la base de donnée
+
             $this->myBD = new AccessDB();
 
             $this->allInstitutions = new ContainerInstitution();
@@ -26,15 +31,23 @@
 
             $this->allOrgans = new ContainerOrgan();
             $this->LoadOrgan();
-        }
 
-        // ========================= Parties à afficher =========================
+            $this->allTexts = new ContainerText();
+            $this->LoadText();
+
+            $this->allArticles = new ContainerArticle();
+            $this->LoadArticle();
+
+            $this->allAmendments = new ContainerAmendment();
+            $this->LoadAmendment();
+        }
 
         // Méthode pour afficher l'entête de la page du site
         public function displayHeader()
         {
             require 'Templates/Views/viewHeader.php';
         }
+
 
         // Méthode pour afficher la page du site (Contenu central)
         public function displayPage()
@@ -78,13 +91,15 @@
         }
 
         // ================================ Controleur classes ================================
+
         public function controllerAmendment($action)
         {
             switch ($action)
             {
                 case "display":
+                    $list = $this->allAmendments->listAmendment();
                     $view = new viewAmendment();
-                    $view->displayAmendment();
+                    $view->displayAmendment($list);
                     break;
                 case "add":
                     $view = new viewAmendment();
@@ -102,8 +117,9 @@
             switch ($action)
             {
                 case "display":
+                    $list = $this->allArticles->listArticles();
                     $view = new viewArticle();
-                    $view->displayArticle();
+                    $view->displayArticle($list);
                     break;
                 case "add":
                     $view = new viewArticle();
@@ -116,6 +132,26 @@
             }
         }
 
+        public function controllerText($action)
+        {
+            switch ($action)
+            {
+                case "display":
+                    $list = $this->allTexts->listTexts();
+                    $view = new viewText();
+                    $view->displayText($list);
+                    break;
+                case "add":
+                    $view = new viewText();
+                    $view->addText();
+                    break;
+                case "remove":
+                    $view = new viewText();
+                    $view->removeText();
+                    break;
+            }
+        }
+
         public function controllerInstitution($action)
         {
             switch ($action)
@@ -124,7 +160,17 @@
                     $list = $this->allInstitutions->listInstitutions();
                     $view = new viewInstitution();
                     $view->displayInstitutions($list);
-                    
+                    break;
+                case "add":
+                    $view = new viewInstitution();
+                    $view->addInstitution();
+                    break;
+                case "input":
+                    $labelInstitution = $_POST['labelInstitution'];
+                    $idInstitution = $this->myBD->giveNextId('institution');
+                    $this->allInstitutions->addInstitution($idInstitution, $labelInstitution);
+                    $this->myBD->addInstitutionBD($idInstitution, $labelInstitution);
+                    echo "Ajout réussi !";
                     break;
             }
         }
@@ -149,25 +195,6 @@
                     $list = $this->allRoles->listRole();
                     $view = new viewRole();
                     $view->displayRole($list);
-                    break;
-            }
-        }
-
-        public function controllerText($action)
-        {
-            switch ($action)
-            {
-                case "display":
-                    $view = new viewText();
-                    $view->displayText();
-                    break;
-                case "add":
-                    $view = new viewText();
-                    $view->addText();
-                    break;
-                case "remove":
-                    $view = new viewText();
-                    $view->removeText();
                     break;
             }
         }
@@ -233,6 +260,52 @@
                 $this->allOrgans->addOrgan($resultOrgan[$nbE][0], $resultOrgan[$nbE][1], $resultOrgan[$nbE][2]);
                 $nbE++;
             }
+        }
+
+        public function LoadText()
+        {
+            $resultText = $this->myBD->Load('texte');
+            $nbE = 0;
+            while ($nbE<sizeof($resultText))
+            {
+                $objectInstitution = $this->allInstitutions->giveInstitutionById($resultText[$nbE][1]);
+                $this->allTexts->addText($resultText[$nbE][0], $objectInstitution, $resultText[$nbE][2], $resultText[$nbE][3], $resultText[$nbE][4]);
+                $nbE++;
+            }
+        }
+
+        public function LoadArticle()
+        {
+            $resultArticle = $this->myBD->Load('article');
+            $nbE = 0;
+            while ($nbE<sizeof($resultArticle))
+            {
+                $objectText = $this->allTexts->giveTextById($resultArticle[$nbE][0]);
+                $this->allArticles->addArticle($objectText, $resultArticle[$nbE][1], $resultArticle[$nbE][2], $resultArticle[$nbE][3]);
+                $nbE++;
+            }
+        }
+
+        public function LoadAmendment()
+        {
+            $resultAmendment = $this->myBD->Load('amendement');
+            $nbE = 0;
+            while ($nbE<sizeof($resultAmendment))
+            {
+                $objectText = $this->allTexts->giveTextById($resultAmendment[$nbE][0]);
+                $objectArticle = $this->allArticles->giveArticleById($resultAmendment[$nbE][1]);
+                $dateTimeAmendment = $this->stringToDateTime($resultAmendment[$nbE][5]);
+                $this->allAmendments->addAmendment($objectText, $objectArticle, $resultAmendment[$nbE][2], $resultAmendment[$nbE][3], $resultAmendment[$nbE][4], $dateTimeAmendment);
+                $nbE++;
+            }
+
+        }
+
+        // Fonction qui convertit en DATETIME : aaaa-mm-jj 
+        function stringToDateTime($date) {
+            $dateFormat = 'Y-m-d';
+            $dateTime = DateTime::createFromFormat($dateFormat, $date);
+            return $dateTime;
         }
     }
 ?>

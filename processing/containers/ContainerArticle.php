@@ -10,17 +10,40 @@
             $this->articles = new ArrayObject();
         }
 
-        public function addArticle($id, $title, $content)
+        public function addArticle($text, $idSeq, $title, $textArticle)
         {
-            $this->articles->append(new ActionArticle($id, $title, $content));
+            $this->articles->append(new ActionArticle($text, $idSeq, $title, $textArticle));
         }
 
         public function listArticles()
         {
-            foreach ($this->articles as $article)
+            $liste = '';
+		    foreach ($this->articles as $article)
+		    	{	
+                    $liste = $liste.$article->displayArticle();
+		    	}
+		    return $liste;
+        }
+
+        public function giveArticleById($id)
+        {
+            $find = false;
+            $findArticle = null;
+            $iArticle = $this->articles->getIterator();
+
+            while ((!$find) && ($iArticle->valid()))
             {
-                // Faire la liste des articles
+                if ($iArticle->current()->idSeq == $id)
+                {
+                    $find = true;
+                    $findArticle = $iArticle->current();
+                }
+                else
+                {
+                    $iArticle->next();
+                }
             }
+            return $findArticle;
         }
     }
 ?>

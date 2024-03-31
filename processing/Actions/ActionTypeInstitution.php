@@ -9,10 +9,8 @@
             {
                 case "id":
                     return $this->id;
-                    break;
                 case "label":
                     return $this->label;
-                    break;
             }
         }
 

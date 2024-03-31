@@ -3,10 +3,39 @@
     {
         public function __construct(){}
 
-        public function displayText()
+        public function displayText($list)
         {
-            echo "Page d'affichage texte.";
+            $listText = explode("|",$list);
+
+            echo '<table class="table table-striped table-bordered table-sm ">
+					<thead>
+						<tr>
+							<th scope="col">id Texte</th>
+							<th scope="col">Libelle Institution</th>
+                            <th scope="col">Titre Texte</th>
+                            <th scope="col">Vote Final</th>
+                            <th scope="col">Promulgation</th>
+						</tr>
+					</thead>
+					<tbody>';
+			$nbE=0;
+			while ($nbE<sizeof($listText))
+			{	
+				$i=0;
+				while (($i<5) && ($nbE<sizeof($listText)))
+				{
+					echo '<td scope>';
+						echo trim($listText[$nbE]);
+					$i++;
+					$nbE++;
+					echo '</td>';
+				}
+				echo '</tr>';
+			}
+			echo '</tbody>';
+			echo '</table>';
         }
+        
 
         public function addText()
         {

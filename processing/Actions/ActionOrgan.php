@@ -8,12 +8,10 @@
             {
                 case "id":
                     return $this->id;
-                    break;
                 case "label":
                     return $this->label;
                 case "nbPersOrgan":
                     return $this->nbPersOrgan;
-                    break;
             }
         }
 
