@@ -78,6 +78,9 @@
 				case 'AMENDEMENT':
 					$stringQuery.='amendement';
 					break;
+				case 'VOTER':
+					$stringQuery.='voter';
+					break;
 	    		default:
 	    			die('Pas une table valide');
 	    	}
