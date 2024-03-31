@@ -8,17 +8,13 @@
             switch ($attribute)
             {
                 case "text":
-                    $this->text->titleText;
-                    break;
+                    return $this->text;
                 case "idSeq":
-                    $this->idSeq;
-                    break;
+                    return $this->idSeq;
                 case "titleArticle":
-                    $this->titleArticle;
-                    break;
+                    return $this->titleArticle;
                 case "textArticle":
-                    $this->textArticle;
-                    break;
+                    return $this->textArticle;
             }
         }
 

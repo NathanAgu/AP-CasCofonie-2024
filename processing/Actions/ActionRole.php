@@ -10,13 +10,10 @@
             {
                 case "idRole":
                     return $this->idRole;
-                    break;
                 case "label":
                     return $this->label;
-                    break;
                 case "idInstitution":
                     return $this->insitution->idInstitution;
-                    break;
             }
         }
 

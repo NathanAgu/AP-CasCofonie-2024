@@ -11,6 +11,7 @@
         private $allOrgans;
         private $allTexts;
         private $allArticles;
+        private $allAmendments;
 
         // Constructeur de la classe "controleur" 
         public function __construct()
@@ -36,6 +37,9 @@
 
             $this->allArticles = new ContainerArticle();
             $this->LoadArticle();
+
+            $this->allAmendments = new ContainerAmendment();
+            $this->LoadAmendment();
         }
 
         // Méthode pour afficher l'entête de la page du site
@@ -93,8 +97,9 @@
             switch ($action)
             {
                 case "display":
+                    $list = $this->allAmendments->listAmendment();
                     $view = new viewAmendment();
-                    $view->displayAmendment();
+                    $view->displayAmendment($list);
                     break;
                 case "add":
                     $view = new viewAmendment();
@@ -272,7 +277,6 @@
         public function LoadArticle()
         {
             $resultArticle = $this->myBD->Load('article');
-
             $nbE = 0;
             while ($nbE<sizeof($resultArticle))
             {
@@ -280,6 +284,28 @@
                 $this->allArticles->addArticle($objectText, $resultArticle[$nbE][1], $resultArticle[$nbE][2], $resultArticle[$nbE][3]);
                 $nbE++;
             }
+        }
+
+        public function LoadAmendment()
+        {
+            $resultAmendment = $this->myBD->Load('amendement');
+            $nbE = 0;
+            while ($nbE<sizeof($resultAmendment))
+            {
+                $objectText = $this->allTexts->giveTextById($resultAmendment[$nbE][0]);
+                $objectArticle = $this->allArticles->giveArticleById($resultAmendment[$nbE][1]);
+                $dateTimeAmendment = $this->stringToDateTime($resultAmendment[$nbE][5]);
+                $this->allAmendments->addAmendment($objectText, $objectArticle, $resultAmendment[$nbE][2], $resultAmendment[$nbE][3], $resultAmendment[$nbE][4], $dateTimeAmendment);
+                $nbE++;
+            }
+
+        }
+
+        // Fonction qui convertit en DATETIME : aaaa-mm-jj 
+        function stringToDateTime($date) {
+            $dateFormat = 'Y-m-d';
+            $dateTime = DateTime::createFromFormat($dateFormat, $date);
+            return $dateTime;
         }
     }
 ?>

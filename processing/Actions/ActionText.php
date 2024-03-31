@@ -7,21 +7,16 @@
         {
             switch ($attribute)
             {
-                case 'idText':
-                    $this->idText;
-                    break;
-                case 'institution':
-                    $this->institution->label;
-                    break;
-                case 'titleText':
-                    $this->titleText;
-                    break;
-                case 'finalVoteText':
-                    $this->finalVoteText;
-                    break;
-                case 'promulgationText':
-                    $this->promulgationText;
-                    break;
+                case "idText":
+                    return $this->idText;
+                case "institution":
+                    return $this->institution;
+                case "titleText":
+                    return $this->titleText;
+                case "finalVoteText":
+                    return $this->finalVoteText;
+                case "promulgationText":
+                    return $this->promulgationText;
             }
         }
 
@@ -56,6 +51,11 @@
         public function giveIdText()
         {
             return $this->idText;
+        }
+
+        public function giveTitleText()
+        {
+            return $this->titleText;
         }
     }
 ?>

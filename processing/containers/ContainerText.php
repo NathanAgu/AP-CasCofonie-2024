@@ -32,8 +32,7 @@
 		    $iText = $this->texts->getIterator();
 		    while ((!$find)&&($iText->valid()))
 		    {
-
-		    	if ($iText->current()->giveIdText() == $id)
+		    	if ($iText->current()->idText == $id)
 		    	{        
 		    		$find=true;
 		    		$findText = $iText->current();

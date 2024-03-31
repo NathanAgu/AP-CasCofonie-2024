@@ -33,7 +33,7 @@
 
             while ((!$find) && ($iArticle->valid()))
             {
-                if ($iArticle->current()->id == $id)
+                if ($iArticle->current()->idSeq == $id)
                 {
                     $find = true;
                     $findArticle = $iArticle->current();

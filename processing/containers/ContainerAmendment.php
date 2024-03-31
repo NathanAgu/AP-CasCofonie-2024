@@ -10,17 +10,19 @@
             $this->amendments = new ArrayObject();
         }
 
-        public function addAmendment($id, $label, $content, $date)
+        public function addAmendment($text, $article, $idSeqAmendment, $labelAmendment, $textAmendment, $dateAmendment)
         {
-            $this->amendments->append(new ActionAmendment($id, $label, $content, $date));
+            $this->amendments->append(new ActionAmendment($text, $article, $idSeqAmendment, $labelAmendment, $textAmendment, $dateAmendment));
         }
 
         public function listAmendment()
         {
-            foreach ($this->amendments as $amendment)
-            {
-                // Faire la liste des ammendemants
-            }
+            $liste = '';
+		    foreach ($this->amendments as $amendment)
+		    	{	
+                    $liste = $liste.$amendment->displayAmendment();
+		    	}
+		    return $liste;
         }
     }
 ?>
