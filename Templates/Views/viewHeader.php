@@ -185,6 +185,18 @@
             </td> -->
         </tr>
     </table>
+    <table>
+        <tr>
+            <td>Vote</td>
+            <td>
+                <form action="index.php" method="GET">
+                    <input type="hidden" name="view" value="vote">
+                    <input type="hidden" name="action" value="display">
+                    <button type="submit">Affichage</button>
+                </form>
+            </td>
+        </tr>
+    </table>
     <br><br>
 </body>
 </html>

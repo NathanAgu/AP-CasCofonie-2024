@@ -12,6 +12,7 @@
         private $allTexts;
         private $allArticles;
         private $allAmendments;
+        private $allVotes;
 
         // Constructeur de la classe "controleur" 
         public function __construct()
@@ -40,6 +41,9 @@
 
             $this->allAmendments = new ContainerAmendment();
             $this->LoadAmendment();
+
+            $this->allVotes = new ContainerVote();
+            $this->LoadVote();
         }
 
         // Méthode pour afficher l'entête de la page du site
@@ -79,6 +83,9 @@
                         break;
                     case "typeInstitution":
                         $this->controllerTypeInstitution($action);
+                        break;
+                    case "vote":
+                        $this->controllerVote($action);
                         break;
                 }
             }
@@ -211,6 +218,18 @@
             }
         }
 
+        public function controllerVote($action)
+        {
+            switch ($action)
+            {
+                case "display":
+                    $list = $this->allVotes->listVote();
+                    $view = new viewVote();
+                    $view->displayVote($list);
+                    break;
+            }
+        }
+
 
         // ------------------------------------------------------------------------------
         //                          Chargement des Conteneurs
@@ -299,6 +318,21 @@
                 $nbE++;
             }
 
+        }
+
+        public function LoadVote()
+        {
+            $resultVote = $this->myBD->Load('voter');
+            $nbE = 0;
+            while ($nbE<sizeof($resultVote))
+            {
+                $objectText = $this->allTexts->giveTextById($resultVote[$nbE][0]);
+                $objectArticle = $this->allArticles->giveArticleById($resultVote[$nbE][1]);
+                $dateTimeVote = $this->stringToDateTime($resultVote[$nbE][2]);
+                $objectOrgan = $this->allOrgans->giveOrganById($resultVote[$nbE][3]);
+                $this->allVotes->addVote($objectText, $objectArticle, $dateTimeVote, $objectOrgan, $resultVote[$nbE][4], $resultVote[$nbE][5]);
+                $nbE++;
+            }
         }
 
         // Fonction qui convertit en DATETIME : aaaa-mm-jj 
