@@ -28,6 +28,30 @@
 			}
         }
 
+		public function verifExistance($login,$pwd)
+		{   
+			//on va mettre le mot de passe saisie en clair par l'utilisateur en crypé MD5 pour pouvoir le comparer à celui dans la base de données.
+			$pwd=MD5($pwd);
+			
+			$requete='SELECT login FROM users where login = "'.$login.'" and pasword = "'.$pwd.'" ;';
+			$result=$this->conn->query($requete);
+			if ($result)
+    		{
+				if ($result->rowCount()==1)
+				{
+					//on va créer une ligne de log dans notre table logActionUtilisateur
+					$requete='INSERT INTO logActionUsers (action,temps, idUtilisateur) VALUES (\'connexion\',\''.date('d-m-y h:i:s').'\',\''.$login.'\');';
+					$result=$this->conn->query($requete);
+					
+					return(1);
+				}
+				else
+				{
+					return(0);
+				}
+			}
+		}
+
         // Fonction Chargement des tables dans la BD
 
         public function Load($uneTable)

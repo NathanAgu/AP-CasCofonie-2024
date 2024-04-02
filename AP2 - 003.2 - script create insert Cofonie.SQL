@@ -289,8 +289,24 @@ insert into VOTER values (1,1,'2019-02-10',1,270,307);
 insert into VOTER values (1,2,'2019-02-12',2,121,200);
 insert into VOTER values (1,2,'2019-02-13',2,120,201);
 
+# -----------------------------------------------------------------------------
+#       TABLE : UTILISATEUR
+# -----------------------------------------------------------------------------
+ create table if not exists utilisateur
+ (login char(32) not null,
+  pwd char(32) not null,
+  idRole int not null,
+  constraint pk_user primary key (login),
+  constraint fk_utilisateur_idRole foreign key (idRole) references ROLEINSTITUTION (idRole)
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8_encode;
+  
+  insert into utilisateur values ('admin1',MD5('Admin121!'));
+  insert into utilisateur values ('admin2',MD5('Admin221!'));
 
 
+# -----------------------------------------------------------------------------
+#       Modèle Relationnel 
+# -----------------------------------------------------------------------------
 TYPEINSTITUTION (idTypeInstitution (PK), libelleTypeInstitution)
 INSTITUTION (idInstitution (PK), libelleInstitution)
 ROLEINSTITUTION (idRole (PK), idInstitution (FK), libelleRole)
