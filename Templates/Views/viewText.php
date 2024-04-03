@@ -46,5 +46,16 @@
         {
             echo "Page de suppression texte.";
         }
+
+		public function generalTexts($listTexts, $listArticles, $listAmendments)
+		{
+			$texts = explode("|",$listTexts);
+			$articles = explode("|",$listArticles);
+			$amendments = explode("|",$listAmendments);
+
+			var_dump($texts);
+			var_dump($articles);
+			var_dump($amendments);
+
     }
 ?>

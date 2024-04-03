@@ -87,6 +87,13 @@
                     <button type="submit">Suppression</button>
                 </form>
             </td>
+            <td>
+                <form action="index.php" method="GET">
+                    <input type="hidden" name="view" value="text">
+                    <input type="hidden" name="action" value="generalText">
+                    <button type="submit">Affichage Textes-Articles-Amendements</button>
+                </form>
+            </td>
         </tr>
     </table>
     <table>

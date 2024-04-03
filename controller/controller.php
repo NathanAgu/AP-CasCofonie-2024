@@ -17,10 +17,11 @@
         // Constructeur de la classe "controleur" 
         public function __construct()
         {
-            // On viens charger tout nos conteneurs avec la base de donnée
+            // Connexion BD
 
             $this->myBD = new AccessDB();
 
+            // Chargement des Conteneurs
             $this->allInstitutions = new ContainerInstitution();
             $this->LoadInstitution();
 
@@ -86,7 +87,7 @@
                         break;
                     case "vote":
                         $this->controllerVote($action);
-                        break;
+                        break;                   
                 }
             }
         }
@@ -144,9 +145,9 @@
             switch ($action)
             {
                 case "display":
-                    $list = $this->allTexts->listTexts();
+                    $listText = $this->allTexts->listTexts();
                     $view = new viewText();
-                    $view->displayText($list);
+                    $view->displayText($listText);
                     break;
                 case "add":
                     $view = new viewText();
@@ -155,6 +156,13 @@
                 case "remove":
                     $view = new viewText();
                     $view->removeText();
+                    break;
+                case "generalText":
+                    $listTexts = $this->allTexts->listTexts();
+                    $listArticles = $this->allArticles->listArticles();
+                    $listAmendments = $this->allAmendments->listAmendment(); 
+                    $view = new viewText();
+                    $view->generalTexts($listTexts, $listArticles, $listAmendments);
                     break;
             }
         }

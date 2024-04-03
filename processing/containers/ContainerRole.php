@@ -10,10 +10,10 @@
             $this->allRoles = new ArrayObject();
         }
 
-        public function addRole($id, $label,$instituton)
+        public function addRole($id, $label,$institution)
         {
             
-            $newRole = new ActionRole($id, $label,$instituton);
+            $newRole = new ActionRole($id, $label,$institution);
             $this->allRoles->append($newRole);
         }
 
