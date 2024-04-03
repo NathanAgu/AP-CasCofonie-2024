@@ -374,8 +374,8 @@
                 if (!filter_var($userIdentifier, FILTER_VALIDATE_EMAIL))
                 {
                     $valid = false;
-                } 
-                else 
+                }
+                else
                 {
                     // Vérification de l'email (utilisé ou non)
                     $sqlRequest = "SELECT userIdentifier FROM user WHERE userIdentifier = :userIdentifier";
