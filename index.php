@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include("controller/controller.php");
 
     if (!isset($controller))

@@ -1,5 +1,5 @@
 <?php
-    class ActionInstitution
+    class ActionTypeInstitution
     {
         public function __construct(private int $id, private string $label){}
 
@@ -9,10 +9,8 @@
             {
                 case "id":
                     return $this->id;
-                    break;
                 case "label":
                     return $this->label;
-                    break;
             }
         }
 
@@ -29,7 +27,7 @@
             }
         }
 
-        public function displayInstitution()
+        public function displayTypeInstitution()
         {
             $result = $this->id . ' | ' . $this->label . ' | ';
             return $result;

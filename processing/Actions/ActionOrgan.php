@@ -1,24 +1,17 @@
 <?php
-    class ActionAmendment
+    class ActionOrgan
     {
-        public function __construct(private int $id, private string $label, private string $content, private dateTime $date) {}
-
+        public function __construct(private int $id, private string $label, private int $nbPersOrgan){}
         public function __get($attribute)
         {
             switch ($attribute)
             {
                 case "id":
                     return $this->id;
-                    break;
                 case "label":
                     return $this->label;
-                    break;
-                case "content":
-                    return $this->content;
-                    break;
-                case "date":
-                    return $this->date;
-                    break;
+                case "nbPersOrgan":
+                    return $this->nbPersOrgan;
             }
         }
 
@@ -32,13 +25,17 @@
                 case "label":
                     $this->label = $value;
                     break;
-                case "content":
-                    $this->content = $value;
-                    break;
-                case "date":
-                    $this->date = $value;
+                case "nbPersOrgan":
+                    $this->nbPersOrgan = $value;
                     break;
             }
         }
+
+        public function displayOrgan()
+        {
+            $result = $this->id . ' | ' . $this->label . ' | ' . $this->nbPersOrgan . ' | ';
+            return $result;
+        }
     }
+    
 ?>
