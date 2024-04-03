@@ -87,6 +87,9 @@
                     case "vote":
                         $this->controllerVote($action);
                         break;
+                    case "user":
+                        $this->controllerUser($action);
+                        break;
                 }
             }
         }
@@ -230,7 +233,7 @@
             }
         }
 
-        public function controllerUser()
+        public function controllerUser($action)
         {
             switch ($action)
             {

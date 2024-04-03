@@ -12,7 +12,7 @@
             $this->host = "127.0.0.1";
             $this->login = "root";
             $this->password = "";
-            $this->dataBase = "cofonie_bf";
+            $this->dataBase = "cofonie";
             $this->connexion();
         }
 
