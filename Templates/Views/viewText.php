@@ -70,7 +70,7 @@
 						{
 							if($amendments[$iAmendment] == $texts[$iText] and $amendments[$iAmendment+1] == $articles[$iArticle])
 							{
-								echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$amendments[$iAmendment+3].'<br>';
+								echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$amendments[$iAmendment+3].' : '.$amendments[$iAmendment+4].'<br>';
 								$iAmendment+=6;
 							}
 							else $iAmendment+=6;
