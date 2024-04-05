@@ -53,9 +53,34 @@
 			$articles = explode("|",$listArticles);
 			$amendments = explode("|",$listAmendments);
 
-			var_dump($texts);
-			var_dump($articles);
-			var_dump($amendments);
-
+			
+			$iText=2;
+			$iArticle=2;
+			
+			while($iText<sizeof($texts))
+			{
+				echo $texts[$iText].'<br>';
+				foreach($articles as $article)
+				{
+					if($article == $texts[$iText])
+					{
+						echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$articles[$iArticle] .'<br>';
+						$iAmendment=0;
+						while($iAmendment<sizeof($amendments))
+						{
+							if($amendments[$iAmendment] == $texts[$iText] and $amendments[$iAmendment+1] == $articles[$iArticle])
+							{
+								echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.$amendments[$iAmendment+3].'<br>';
+								$iAmendment+=6;
+							}
+							else $iAmendment+=6;
+						}
+						$iArticle+=4;
+					}			 	
+				}
+				echo '<br>';
+				$iText+=5;
+			}
+		}
     }
 ?>

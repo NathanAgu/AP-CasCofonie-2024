@@ -25,7 +25,7 @@
 		    return $liste;
         }
 
-        public function giveArticleById($id)
+        public function giveArticleOfTextById($id, $Text)
         {
             $find = false;
             $findArticle = null;
@@ -33,7 +33,7 @@
 
             while ((!$find) && ($iArticle->valid()))
             {
-                if ($iArticle->current()->idSeq == $id)
+                if ($iArticle->current()->idSeq == $id && $iArticle->current()->text == $Text)
                 {
                     $find = true;
                     $findArticle = $iArticle->current();

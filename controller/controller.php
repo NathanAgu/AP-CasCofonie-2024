@@ -320,7 +320,7 @@
             while ($nbE<sizeof($resultAmendment))
             {
                 $objectText = $this->allTexts->giveTextById($resultAmendment[$nbE][0]);
-                $objectArticle = $this->allArticles->giveArticleById($resultAmendment[$nbE][1]);
+                $objectArticle = $this->allArticles->giveArticleOfTextById($resultAmendment[$nbE][1], $objectText);
                 $dateTimeAmendment = $this->stringToDateTime($resultAmendment[$nbE][5]);
                 $this->allAmendments->addAmendment($objectText, $objectArticle, $resultAmendment[$nbE][2], $resultAmendment[$nbE][3], $resultAmendment[$nbE][4], $dateTimeAmendment);
                 $nbE++;
@@ -335,7 +335,7 @@
             while ($nbE<sizeof($resultVote))
             {
                 $objectText = $this->allTexts->giveTextById($resultVote[$nbE][0]);
-                $objectArticle = $this->allArticles->giveArticleById($resultVote[$nbE][1]);
+                $objectArticle = $this->allArticles->giveArticleOfTextById($resultVote[$nbE][1], $objectText);
                 $dateTimeVote = $this->stringToDateTime($resultVote[$nbE][2]);
                 $objectOrgan = $this->allOrgans->giveOrganById($resultVote[$nbE][3]);
                 $this->allVotes->addVote($objectText, $objectArticle, $dateTimeVote, $objectOrgan, $resultVote[$nbE][4], $resultVote[$nbE][5]);

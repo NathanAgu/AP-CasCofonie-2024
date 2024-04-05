@@ -44,18 +44,8 @@
 
         public function displayText()
         {
-            $result = $this->idText . ' | ' . $this->institution->label . ' | ' . $this->titleText . ' | ' . $this->finalVoteText . ' | ' . $this->promulgationText . ' | ' ;
+            $result = $this->idText.'|'. $this->institution->label.'|'. $this->titleText.'|'. $this->finalVoteText.'|'.$this->promulgationText.'|';
             return $result;
-        }
-
-        public function giveIdText()
-        {
-            return $this->idText;
-        }
-
-        public function giveTitleText()
-        {
-            return $this->titleText;
         }
     }
 ?>

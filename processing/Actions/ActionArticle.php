@@ -39,7 +39,7 @@
 
         public function displayArticle()
         {
-            $result = $this->text->titleText . ' | ' . $this->idSeq . ' | ' . $this->titleArticle . ' | ' . $this->textArticle . ' | ' ;
+            $result = $this->text->titleText.'|'.$this->idSeq.'|'.$this->titleArticle.'|'. $this->textArticle.'|';
             return $result;
         }
     }
