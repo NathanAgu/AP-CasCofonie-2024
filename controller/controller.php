@@ -50,7 +50,8 @@
         // Méthode pour afficher l'entête de la page du site
         public function displayHeader()
         {
-            require 'Templates/Views/viewHeader.php';
+            require 'Templates/Views/viewsHeader.php';
+
         }
 
 

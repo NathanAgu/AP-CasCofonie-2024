@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
-    <link rel="stylesheet" href="../Assets/Css/menu.css">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="Templates/Assets/Css/menu.css">
 
     <title>Cofonie</title>
 </head>
@@ -29,14 +26,14 @@
       <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
         <div class="flexMain">
           <div class="flex2">
-            <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()"><i class="fas fa-bars me-2"></i> MENU</button>
+            <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()">MENU</button>
           </div>
           <div class="flex3 text-center" id="siteBrand">
             LegiCo
           </div>
-    
+
           <div class="flex2 text-end d-block d-md-none">
-            <button class="whiteLink siteLink"><i class="fas fa-search"></i></button>
+            <button class="whiteLink siteLink"></button>
           </div>
     
           <div class="flex2 text-end d-none d-md-block">
@@ -50,19 +47,20 @@
         <div class="p-4 border-bottom">
           <div class='row'>
             <div class="col text-end ">
-              <i class="fas fa-times" role="btn" onclick="menuToggle()"></i>
+              <i role="btn" onclick="menuToggle()"></i>
             </div>
           </div>
         </div>
         <div>
-          <a href="#" class="nav-menu-item"> Acceuil</a>
-          <a href="#" class="nav-menu-item"> Nouveautés</a>
-          <a href="#" class="nav-menu-item"> Toutes Les Infos</a>
-          <a href="#" class="nav-menu-item"> Texte</a>
-          <a href="#" class="nav-menu-item"> Article</a>
-          <a href="#" class="nav-menu-item"> Amendement</a>
-          <a href="#" class="nav-menu-item"> A Propos</a>
+          <a href="index.php" class="nav-menu-item"> Acceuil</a>
+          <a href="index.php?" class="nav-menu-item"> Nouveautés</a>
+          <a href="index.php?view=text&action=generalText" class="nav-menu-item"> Toutes Les Infos</a>
+          <a href="index.php?view=text&action=display" class="nav-menu-item"> Texte</a>
+          <a href="index.php?view=article&action=display" class="nav-menu-item"> Article</a>
+          <a href="index.php?view=amendment&action=display" class="nav-menu-item"> Amendement</a>
+          <a href="index.php?" class="nav-menu-item"> A Propos</a>
         </div>
       </div>
     </div>
-    <script src="../Assets/Js/menu.js"></script>
+
+  <script src="Templates/Assets/Js/menu.js"></script>
