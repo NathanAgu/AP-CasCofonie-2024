@@ -28,7 +28,7 @@
 			}
         }
 
-		public function verifExistance($login,$pwd)
+		public function logUser($login,$pwd)
 		{   
 			//on va mettre le mot de passe saisie en clair par l'utilisateur en crypé MD5 pour pouvoir le comparer à celui dans la base de données.
 			$pwd=MD5($pwd);

@@ -49,7 +49,6 @@
 
         public function displayAmendment()
         {
-
             $result = $this->text->titleText.'|'.$this->article->titleArticle.'|'.$this->idSeqAmendment.'|'.$this->labelAmendment.'|'.$this->textAmendment.'|'. $this->dateTimeToString($this->dateAmendment).'|';
             return $result;
         }

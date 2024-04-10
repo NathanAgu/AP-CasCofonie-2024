@@ -1,0 +1,59 @@
+body {
+    background: rgb(255, 255, 255);
+    position: relative;
+    height: 100vh;
+}
+
+.form--user__icon span{
+    font-size: 32px;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.container {
+        width: 60%;
+margin: 0 auto;
+background: #3b3b3b;
+border-radius: 4px;
+position: absolute;
+top: 50%;
+z-index: 2;
+color: #ffffff;
+content: '';
+padding: 20px;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+
+.form--user__icon {
+          border-radius: 50%;
+height: 100px;
+z-index: 9;
+top: -50px;
+text-align: center;
+left: 50%;
+transform: translate(-50%, 0);
+position: absolute;
+background: #586f7c;
+width: 100px;
+color: #fff;
+}
+
+button {
+
+width: 100%;
+color:#fff !important;
+border-radius: 50px !important;
+border: 0 !important;
+background: #586f7c !important;
+}
+
+.container h4 {
+    margin-top: 32px;
+}
+form a{
+color:#fff !important;
+text-decoration:underline !important;
+}

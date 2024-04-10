@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="Templates/Assets/Css/menu.css">
-
     <title>Cofonie</title>
 </head>
 <body>
@@ -36,9 +35,8 @@
             <button class="whiteLink siteLink"></button>
           </div>
     
-          <div class="flex2 text-end d-none d-md-block">
-            <button class="whiteLink siteLink">S'enregistrer</button>
-            <button class="blackLink siteLink">Connexion</button>
+          <div class=" text-end d-none d-md-block">
+            <a href="Templates/Views/viewConnexion.php"><button type="button" class="btn btn-dark">Connexion</button></a>
           </div>
         </div>
       </div>

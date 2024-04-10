@@ -88,7 +88,10 @@
                         break;
                     case "vote":
                         $this->controllerVote($action);
-                        break;                   
+                        break;    
+                    case "connexion":
+                        $this->controllerConnexion($action);
+                        break;               
                 }
             }
         }
@@ -100,6 +103,15 @@
         }
 
         // ================================ Controleur classes ================================
+
+        public function controllerConnexion($action)
+        {
+            switch($action)
+            {
+                case "connexion":
+                    
+            }
+        }
 
         public function controllerAmendment($action)
         {
