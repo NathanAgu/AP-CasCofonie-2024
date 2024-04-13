@@ -46,10 +46,10 @@
             }
             else
             {
-                echo 'Connexion Réussi';
-
                 $_SESSION['login'] = $login;
                 $_SESSION['role'] = $myBD->roleUser();
+                
+                header("Location: index.php");
             }
         }
     }

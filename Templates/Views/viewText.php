@@ -57,6 +57,11 @@
 			$iText=2;
 			$iArticle=2;
 			
+			?>
+			
+			    
+			<?php
+
 			while($iText<sizeof($texts))
 			{
 				echo $texts[$iText].'<br>';

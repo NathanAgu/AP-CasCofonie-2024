@@ -53,20 +53,19 @@
 			}
 		}
 
-		public function roleUser()
-		{
+		public function roleUser() {
 			$login = $_SESSION['login'];
-
-			$stringQuery = 'SELECT idRole FROM utilisateur where login = "'.$login.'";';
-			$result = $this->conn->prepare($stringQuery);
-			if($result->execute())
+			$idRole=null;
+			$request = $this->conn->prepare('SELECT idRole FROM utilisateur WHERE login = "'.$login.'";');
+			if(!$request->execute())
 			{
-				return $result;
+				die("Erreur dans le Role de l'utilisateur : ".$request->errorCode());
 			}
 			else
 			{
-				die('Problème dans le rôle utilisateur'.$result->errorCode());
+				$idRole = $request->fetchAll();
 			}
+			return $idRole;	
 		}
 
         // Fonction Chargement des tables dans la BD
@@ -161,7 +160,6 @@
 			{
 				die("Erreur dans insert Institution : " .$request->errorCode());
 			}
-			return $idInstitution;
 		}
     }
 ?>
