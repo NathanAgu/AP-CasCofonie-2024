@@ -298,10 +298,12 @@ insert into VOTER values (1,2,'2019-02-13',2,120,201);
   idRole int not null,
   constraint pk_user primary key (login),
   constraint fk_utilisateur_idRole foreign key (idRole) references ROLEINSTITUTION (idRole)
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8_encode;
+  )ENGINE=InnoDB;
+
+  CREATE  INDEX I_FK_UTILISATEUR_ROLEINSTITUTION
+     ON ROLEINSTITUTION (idRole ASC);
   
-  insert into utilisateur values ('admin1',MD5('Admin121!'));
-  insert into utilisateur values ('admin2',MD5('Admin221!'));
+  insert into utilisateur values (1,'bfau',MD5('Bf@u86'),1);
 
 
 # -----------------------------------------------------------------------------

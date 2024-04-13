@@ -91,7 +91,7 @@
                         break;    
                     case "connexion":
                         $this->controllerConnexion($action);
-                        break;               
+                        break;
                 }
             }
         }
@@ -108,8 +108,18 @@
         {
             switch($action)
             {
+                case "display":
+                    $view = new viewConnexion();
+                    $view->displayUserLogin();
+                    break;
                 case "connexion":
-                    
+                    $view = new viewConnexion();
+                    $view->connexionUser();
+                    break;
+                case "deconnect":
+                    unset($_SESSION['login']);
+                    //unset($_SESSION['role']);
+                    break;
             }
         }
 

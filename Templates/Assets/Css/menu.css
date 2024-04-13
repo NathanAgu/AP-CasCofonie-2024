@@ -25,11 +25,17 @@ button.siteLink {
   background:#232323;
   transition: all 300ms linear;
 }
-
 .blackLink:active {
   color: #000;
   background:#fff
 }
+.redLink {
+  color: #fff;
+  background:#c00000;
+  transition: all 300ms linear;
+}
+
+
 #siteBrand {
   font-family: impact;
   letter-spacing : -1px;

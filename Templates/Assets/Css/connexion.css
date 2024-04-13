@@ -1,9 +1,3 @@
-body {
-    background: rgb(255, 255, 255);
-    position: relative;
-    height: 100vh;
-}
-
 .form--user__icon span{
     font-size: 32px;
     position: absolute !important;
@@ -12,7 +6,7 @@ body {
     transform: translate(-50%, -50%);
 }
 .container {
-        width: 60%;
+width: 60%;
 margin: 0 auto;
 background: #3b3b3b;
 border-radius: 4px;
@@ -41,14 +35,14 @@ width: 100px;
 color: #fff;
 }
 
-button {
+button.connexion {
 
-width: 100%;
-color:#fff !important;
-border-radius: 50px !important;
-border: 0 !important;
-background: #586f7c !important;
-}
+    width: 100%;
+    color:#fff !important;
+    border-radius: 50px !important;
+    border: 0 !important;
+    background: #586f7c !important;
+    }
 
 .container h4 {
     margin-top: 32px;

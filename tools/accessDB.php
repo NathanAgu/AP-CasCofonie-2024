@@ -33,14 +33,15 @@
 			//on va mettre le mot de passe saisie en clair par l'utilisateur en crypé MD5 pour pouvoir le comparer à celui dans la base de données.
 			$pwd=MD5($pwd);
 			
-			$requete='SELECT login FROM users where login = "'.$login.'" and pasword = "'.$pwd.'" ;';
+			$requete='SELECT login FROM utilisateur where login = "'.$login.'" and password = "'.$pwd.'" ;';
 			$result=$this->conn->query($requete);
+
 			if ($result)
     		{
 				if ($result->rowCount()==1)
 				{
 					//on va créer une ligne de log dans notre table logActionUtilisateur
-					$requete='INSERT INTO logActionUsers (action,temps, idUtilisateur) VALUES (\'connexion\',\''.date('d-m-y h:i:s').'\',\''.$login.'\');';
+					//$requete='INSERT INTO logActionUsers (action,temps, idUtilisateur) VALUES (\'connexion\',\''.date('d-m-y h:i:s').'\',\''.$login.'\');';
 					$result=$this->conn->query($requete);
 					
 					return(1);
@@ -49,6 +50,22 @@
 				{
 					return(0);
 				}
+			}
+		}
+
+		public function roleUser()
+		{
+			$login = $_SESSION['login'];
+
+			$stringQuery = 'SELECT idRole FROM utilisateur where login = "'.$login.'";';
+			$result = $this->conn->prepare($stringQuery);
+			if($result->execute())
+			{
+				return $result;
+			}
+			else
+			{
+				die('Problème dans le rôle utilisateur'.$result->errorCode());
 			}
 		}
 

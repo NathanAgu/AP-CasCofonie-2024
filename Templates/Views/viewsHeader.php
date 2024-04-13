@@ -36,7 +36,20 @@
           </div>
     
           <div class=" text-end d-none d-md-block">
-            <a href="Templates/Views/viewConnexion.php"><button type="button" class="btn btn-dark">Connexion</button></a>
+            
+              <?php
+              if(isset($_SESSION['login']))
+              {
+                echo '<a href="index.php?view=connexion&action=deconnect">
+                <button class="redLink siteLink">Déconnexion</button></a>';
+              } 
+              else 
+              {
+                echo '<a href="index.php?view=connexion&action=display">
+                <button class="blackLink siteLink">Connexion</button></a>';
+              }
+              ?>
+
           </div>
         </div>
       </div>
@@ -62,3 +75,5 @@
     </div>
 
   <script src="Templates/Assets/Js/menu.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
