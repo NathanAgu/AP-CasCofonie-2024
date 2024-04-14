@@ -41,7 +41,7 @@
             $return = $myBD->logUser($login, $password);
             if ($return == 0)
             {
-                echo "Erreur dans l'identifiants ou le mot de passe";
+                echo '<p class="fs-2 text-center text-danger ">'."Erreur dans l'identifiants ou le mot de passe </p>";
                 $this->displayUserLogin();
             }
             else

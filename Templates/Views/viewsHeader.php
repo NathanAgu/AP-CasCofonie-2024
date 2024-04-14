@@ -66,9 +66,16 @@
           <a href="index.php" class="nav-menu-item"> Acceuil</a>
           <a href="index.php?" class="nav-menu-item"> Nouveautés</a>
           <a href="index.php?view=text&action=generalText" class="nav-menu-item"> Toutes Les Infos</a>
+          <?php
+          if(isset($_SESSION['role']) == 1)
+          {
+          ?>
           <a href="index.php?view=text&action=display" class="nav-menu-item"> Texte</a>
           <a href="index.php?view=article&action=display" class="nav-menu-item"> Article</a>
           <a href="index.php?view=amendment&action=display" class="nav-menu-item"> Amendement</a>
+          <?php
+          }
+          ?>
           <a href="index.php?" class="nav-menu-item"> A Propos</a>
         </div>
       </div>
