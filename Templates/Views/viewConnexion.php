@@ -41,8 +41,8 @@
             $return = $myBD->logUser($login, $password);
             if ($return == 0)
             {
-                echo '<p class="fs-2 text-center text-danger ">'."Erreur dans l'identifiants ou le mot de passe </p>";
                 $this->displayUserLogin();
+                echo '<p class="fs-2 text-center text-danger ">'."Erreur dans l'identifiants ou le mot de passe </p>";
             }
             else
             {
@@ -51,6 +51,11 @@
                 
                 header("Location: index.php");
             }
+        }
+
+        public function infoUser()
+        {
+            echo"Page d'infomartions sur l'utlisateurs + Fonctionnalité de changer MDP";
         }
     }
 

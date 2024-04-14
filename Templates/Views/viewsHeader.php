@@ -24,22 +24,22 @@
     <div id="menuHolder">
       <div role="navigation" class="sticky-top border-bottom border-top" id="mainNavigation">
         <div class="flexMain">
+  
           <div class="flex2">
             <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()">MENU</button>
           </div>
-          <div class="flex3 text-center" id="siteBrand">
+
+          <div class="flex2 position-absolute top-0 start-0 translate-middle" id="siteBrand">
             LegiCo
           </div>
-
-          <div class="flex2 text-end d-block d-md-none">
-            <button class="whiteLink siteLink"></button>
-          </div>
     
-          <div class=" text-end d-none d-md-block">
+          <div class="text-end d-none d-md-block">
             
               <?php
               if(isset($_SESSION['login']))
               {
+                echo'<a href="index.php?view=connexion&action=info">
+                <button class="blackLink siteLink" style="transform: translate(-0.5em);">Compte</button></a>';
                 echo '<a href="index.php?view=connexion&action=deconnect">
                 <button class="redLink siteLink">Déconnexion</button></a>';
               } 
@@ -64,7 +64,7 @@
         </div>
         <div>
           <a href="index.php" class="nav-menu-item"> Acceuil</a>
-          <a href="index.php?" class="nav-menu-item"> Nouveautés</a>
+          <a href="index.php?view=news&action=display" class="nav-menu-item"> Nouveautés</a>
           <a href="index.php?view=text&action=generalText" class="nav-menu-item"> Toutes Les Infos</a>
           <?php
           if(isset($_SESSION['role']) == 1)

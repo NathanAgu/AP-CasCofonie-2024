@@ -92,7 +92,14 @@
                     case "connexion":
                         $this->controllerConnexion($action);
                         break;
+                    case "news":
+                        $this->controllerNews($action);
+                        break;
                 }
+            }
+            else
+            {
+                echo"Faire une page d'acceuil";
             }
         }
 
@@ -103,6 +110,17 @@
         }
 
         // ================================ Controleur classes ================================
+
+        public function controllerNews($action)
+        {
+            switch($action)
+            {
+                case "display":
+                    $view = new viewNews();
+                    $view->displayNews();
+                    break;
+            }
+        }
 
         public function controllerConnexion($action)
         {
@@ -120,6 +138,10 @@
                     unset($_SESSION['login']);
                     unset($_SESSION['role']);
                     header("Location: index.php");
+                    break;
+                case "info":
+                    $view = new viewConnexion();
+                    $view->infoUser();
                     break;
             }
         }

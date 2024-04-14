@@ -53,6 +53,7 @@
 			}
 		}
 
+		// Fonction qui donne le l'idRole de l'utilisateur connecté
 		public function roleUser() {
 			$login = $_SESSION['login'];
 			$idRole=null;

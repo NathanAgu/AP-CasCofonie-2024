@@ -59,7 +59,8 @@
 			
 			?>
 			
-			    
+
+			
 			<?php
 
 			while($iText<sizeof($texts))
