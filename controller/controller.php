@@ -99,7 +99,8 @@
             }
             else
             {
-                echo"Faire une page d'acceuil";
+                $view = new viewHome();
+                $view->display();
             }
         }
 
