@@ -209,7 +209,7 @@
                     $listArticles = $this->allArticles->listArticles();
                     $listAmendments = $this->allAmendments->listAmendment(); 
                     $view = new viewText();
-                    $view->generalTexts($listTexts, $listArticles, $listAmendments);
+                    $view->AllInfo($listTexts, $listArticles, $listAmendments);
                     break;
             }
         }

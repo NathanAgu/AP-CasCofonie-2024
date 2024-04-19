@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="Templates/Assets/Css/menu.css">
     <title>Cofonie</title>
 </head>
@@ -11,14 +11,15 @@
 <div class="p-3 bg-dark text-white">
       <div class="flexMain">
         <div class="flex1">
-    
         </div>
+
         <div class="flex2 text-center">
           <div><strong>Service public de la diffusion du droit</strong></div>
         </div>
+
         <div class="flex1">
-    
         </div>
+
       </div>
     </div>
     <div id="menuHolder">
@@ -29,7 +30,7 @@
             <button class="whiteLink siteLink" style="border-right:1px solid #eaeaea" onclick="menuToggle()">MENU</button>
           </div>
 
-          <div class="flex2 position-absolute top-0 start-0 translate-middle" id="siteBrand">
+          <div class="flex2" id="siteBrand">
             LegiCo
           </div>
     
@@ -82,5 +83,7 @@
     </div>
 
   <script src="Templates/Assets/Js/menu.js"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
