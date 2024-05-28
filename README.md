@@ -44,3 +44,4 @@ Outils de collaboration : Git, Trello
 Ce projet permettra aux étudiants de développer des compétences concrètes en création de site web.
 Ils seront amenés à travailler en équipe et à gérer un projet de A à Z.
 Ce projet sera valorisé dans leur portfolio et leur permettra de se démarquer sur le marché du travail.
+
